@@ -5,9 +5,11 @@
       <li><%= user.id %></li>
       <li><%= user.name %></li>
       <li><%= user.user %></li>
-      <li><%= user.password %></li>
       <li><%= user.mail %></li>
       <li><%= user.telephone %></li>
+
+
+
       <li><%= link_to 'Edit', edit_user_path(user) %></li>
       <li><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure ?"%></li>
       </li>
@@ -15,4 +17,13 @@
 
 <% end %>
 
-<%= link_to 'New', new_user_path(@user) %> |
+<%= link_to 'New', new_user_path(@user) %>
+
+<p> <%= link_to 'User login', controller: "sessions", action: "new" %> <p>
+
+<% if logged_in? %>
+  <%= link_to "Log out", logout_path, method: "delete" %>
+
+<%else%>
+
+<% end %>
