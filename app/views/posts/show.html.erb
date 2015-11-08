@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>ID:
+  <h4><%= @post.id %></h4>
+</p>
+<p>user_id:
+  <h4><%= @post.user_id %></h4>
+</p>
+<p>description:
+  <%= @post.description %>
+</p>
+<p>school_id:
+  <%= @post.school_id %>
+</p>
+<p>category_id:
+  <%= @post.category_id %>
+</p>
+<p>price:
+  <%= @post.price %>
+</p>
+<p>category_post_id:
+  <%= @post.category_post_id %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
