@@ -12,24 +12,28 @@ class SchoolsController < ApplicationController
   def new
     @school = School.new
   end
+
   def edit
     @school = School.find(params[:id])
   end
 
   def create
-    @school = School.new(params[:school])
+    @school = School.new(school_params)
 
     if @school.save
       redirect_to @school
     else
       render 'new'
+    end
   end
+
   def update
     @school = School.find(params[:id])
     if @school.update(school_params)
       redirect_to @school
     else
       render 'edit'
+    end
   end
 
   def destroy
@@ -37,11 +41,11 @@ class SchoolsController < ApplicationController
     @school.destroy
 
     redirect_to schools_path
-end
+  end
 
   private
   def school_params
-    params.require(:school).permit(:name, :text))
+    params.require(:school).permit(:name)
   end
 
 end

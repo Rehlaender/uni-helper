@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>ID
+  <h4><%= @category_post.id %></h4>
+</p>
+<p>name
+  <h4><%= @category_post.name %></h4>
+</p>
+
+
+<%= link_to 'Edit', edit_category_post_path(@category_post) %> |
+<%= link_to 'Back', category_posts_path %>
