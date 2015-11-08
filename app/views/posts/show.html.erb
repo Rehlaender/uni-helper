@@ -15,7 +15,8 @@
   <tbody>
     <tr class="info">
       <!--<td><%= @post.id %></td>-->
-      <td><%= @post.user.name %></td>
+      <!--<td><%= @post.user.name %></td>-->
+      <td><a href='<%= user_path(@post.user.id)%>'> <%= @post.user.name %></a></td>
       <td><%= @post.description %></td>
       <td><%= @post.school.name %></td>
       <td><%= @post.category.name %></td>
@@ -25,8 +26,11 @@
   </tbody>
 </table>
 
+
 <p>
-  <%= link_to 'Regresar', :back %>
+  <a class="" href="<%= posts_category_post_path(2) %>">Regresar</a>
+  <!-- Este metodo de "Back" es una mexicanada, cambiar cuando se resuelva el loop de 2 link_to :back #jeje
+  <%= link_to 'Regresar', :back %> -->
 </p>
 <!--
 <%= link_to 'Edit', edit_post_path(@post) %> |
