@@ -10,36 +10,36 @@
       <li><a href="<%= posts_category_path(category.id) %>"><%= category.name %></a></li>
       <% end %>
     </ul>
-  </div>  
+  </div>
 </div>
 
 
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>ID</th>
+      <!--<th>ID</th>-->
       <th>User who posted</th>
       <th>Description</th>
       <th>School</th>
       <th>Category</th>
       <th>Price</th>
-      <th>Category_post</th>
+      <!--<th>Category_post</th>-->
     </tr>
   </thead>
   <% @posts.each do |post| %>
   <tbody>
     <tr class="info">
-      <td><%= post.id %></td>
+      <!--<td><%= post.id %></td>-->
       <td><a href='users/<%= post.user.id %>'><%= post.user.name %></a></td>
       <td><%= post.description %></td>
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
       <td><%= post.price %></td>
       <td><%= post.category_post.name %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure ?"%></td>
+      <!--<td><%= link_to 'Edit', edit_post_path(post) %></td>-->
+      <!--<td><%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure ?"%></td>-->
     </tr>
   </tbody>
   <% end %>
 </table>
-<%= link_to 'New', new_post_path(@post) %>
+<!--<%= link_to 'New', new_post_path(@post) %>-->
