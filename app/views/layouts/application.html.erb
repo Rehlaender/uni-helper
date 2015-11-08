@@ -11,6 +11,10 @@
   <h1 class="text-center">Unihelper</h1>
 </div>
 <%= yield %>
+<% if logged_in? %>
+  <%= link_to "Log out", logout_path, method: "delete" %>
 
+<%else%>
+<% end %>
 </body>
 </html>

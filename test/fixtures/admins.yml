@@ -3,11 +3,9 @@
 one:
   name: MyString
   user: MyString
-  mail: MyString
-  telephone: MyString
+  email: MyString
 
 two:
   name: MyString
-  user: MyString1
-  mail: MyString1
-  telephone: MyString
+  user: MyString2
+  email: MyString2
