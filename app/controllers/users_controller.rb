@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include SessionsHelper
+
   def index
     @users = User.all
   end
@@ -15,9 +17,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+
      redirect_to @user
     else
-     render 'new'
+      redirect_to action: "new"
     end
   end
 
@@ -48,6 +51,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :user, :password, :mail, :telephone)
+    params.require(:user).permit(:name, :user, :password, :password_confirmation, :mail, :telephone)
   end
 end
