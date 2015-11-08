@@ -1,33 +1,36 @@
-<h1>Posts ellos "Ofrecen"</h1>
-
-
-
+<h2> Por ahora los usuarios pueden ofrecerte:</h2>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>User who posted</th>
+      <!--<th>ID</th>-->
+      <th>Posteador</th>
       <th>Description</th>
-      <th>School</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Category_post</th>
+      <th>Orientado a la facultad</th>
+      <th>Categoria</th>
+      <th>Costo</th>
+      <!--<th>Category_post</th>-->
     </tr>
   </thead>
   <% @posts.each do |post| %>
   <tbody>
     <tr class="info">
-      <td><%= post.id %></td>
-      <td><a href='users/<%= post.user.id %>'><%= post.user.name %></a></td>
+      <!--<td><%= post.id %></td>-->
+
+      <td><a href='<%= user_path(post.user.id)%>'> <%= post.user.name %></a></td>
       <td><%= post.description %></td>
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
       <td><%= post.price %></td>
-<td><%= post.category_post.name %></td>
+      <!--<td><%= post.category_post.name %></td>-->
+      <td><%= link_to '<i class="mdi-action-search"></i>'.html_safe, post %></td>
+      <!--Solo para admin
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td><%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure ?"%></td>
+      -->
     </tr>
   </tbody>
   <% end %>
 </table>
-<%= link_to 'New', new_post_path(@post) %>
+
+<!--Tambien para admin
+<%= link_to 'New', new_post_path(@post) %>-->

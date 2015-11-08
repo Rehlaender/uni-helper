@@ -1,6 +1,19 @@
-<h1 class="col-lg-offset-6">Home</h1>
-<div class="jumbotron col-lg-6 col-md-offset-3">
 
-  <h3><a href="<%= posts_category_post_path(1) %>"><%= CategoryPost.find(1).name %></a></h3>
-  <h3>  <%= link_to 'Ofreces?' , new_post_path %><br> </h3>
+<div class="jumbotron col-lg-6 col-md-offset-3">
+  <h1 align="center">Bienvenido!</h1>
+  <h3 align="center">"<%= current_user.name %>"</h3>
+  <br>
+
+  <div align="center">
+    <p>
+      ¿Hoy vamos a?
+    </p>
+    <p>
+      <!-- falta validacion en cuanto a nombre segun la base de datos
+      <a class="btn btn-material-cyan" href="<%= posts_category_post_path(2) %>"><%= CategoryPost.find(2).name %></a>
+      -->
+      <a class="btn btn-material-cyan" href="<%= posts_category_post_path(2) %>">Buscar</a>
+      <%= link_to 'Ofrecer' , new_post_path, :class=>"btn btn-material-red" %>
+    </p>
+  </div>
 </div>
