@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
+      <th>User who posted</th>
       <th>Description</th>
       <th>School</th>
       <th>Category</th>
@@ -16,7 +16,7 @@
   <tbody>
     <tr class="info">
       <td><%= post.id %></td>
-      <td><%= post.user.name %></td>
+      <td><a href='users/<%= post.user.id %>'><%= post.user.name %></a></td>
       <td><%= post.description %></td>
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
