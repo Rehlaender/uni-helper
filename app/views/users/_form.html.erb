@@ -1,32 +1,32 @@
 <div class="jumbotron col-md-6 col-md-offset-3">
 <%= form_for(@user) do |f| %>
   <p>
-    <%= f.label :name %><br>
+    <%= f.label "Nombre" %><br>
     <%= f.text_field :name, class: "form-control"%>
   </p>
 
   <p>
-    <%= f.label :user %><br>
+    <%= f.label "Usuario" %><br>
     <%= f.text_field :user, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :mail %><br>
+    <%= f.label "Email" %><br>
     <%= f.text_field :mail, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :telephone %><br>
+    <%= f.label "Telefono" %><br>
     <%= f.text_field :telephone, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :password %><br>
+    <%= f.label "Contrasenia" %><br>
     <%= f.password_field :password, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :password_confirmation %><br>
+    <%= f.label "Confirmar contrasenia" %><br>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </p>
 
@@ -35,6 +35,6 @@
   <p>
 <% end %>
 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Regresar', :back %>
 
 </div>

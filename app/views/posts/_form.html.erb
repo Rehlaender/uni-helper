@@ -6,37 +6,42 @@
     <%= f.text_field :user_id, class: "form-control" %>
   </p>
 -->
-  <p>
+<!--  <p>
     <%= current_user.name %>
   </p>
+-->
   <p>
-    <%= f.label :description %>
+    <%= f.label "Descripcion" %>
     <%= f.text_field :description, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :school_id %>
+    <%= f.label "A que facultad va orientado el post?" %>
     <%= f.select :school_id, select_school,{}, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :category_id %>
+    <%= f.label "Categoria de oferta" %>
     <%= f.select :category_id, select_category,{}, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :price %>
+    <%= f.label "Precio" %>
     <%= f.text_field :price, class: "form-control" %>
   </p>
 
+
+
+<!-- no hubo tiempo para implementar el "Necesito"
   <p>
-    <%= f.label :category_post_id %>
     <%= f.select :category_post_id, select_category_post,{}, class: "form-control" %>
   </p>
-
+-->
   <p class="text-center">
     <%= f.submit :class => "btn btn-success"%>
   </p>
 <% end %>
+<!--
 <%= link_to 'Back', posts_path %>
+-->
 </div>

@@ -1,15 +1,18 @@
 <div class="row">
 
   <div class="jumbotron col-lg-6 col-md-offset-3" >
+    <% if !logged_in? %>
     <h1 align="center"><img src="/applogo48px.png" alt="" />Uni-helper</h1>
-
     <h4 style="text-align:center" ><i>La facilidad de aprender.</i></h3>
-
     <div align="center">
-      <%= link_to 'Inicia Sesion' , login_path, :class => "btn btn-material-indigo" %></li>
+      <%= link_to 'Inicia Sesion' , login_path, :class => "btn btn-material-indigo" %>
     </div>
     <br>
     <p align="right"> O registrate <%= link_to 'aqui' , new_user_path %> </p>
+    <% else %>
+    <%= render 'homelost' %>
+    <% end %>
   </div>
+
 
 </div>
