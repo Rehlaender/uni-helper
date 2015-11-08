@@ -1,22 +1,29 @@
 <h1>Users</h1>
 
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>User</th>
+      <th>Mail</th>
+      <th>Telephone</th>
+    </tr>
+  </thead>
 <% @users.each do |user| %>
-  <ul>
-      <li><%= user.id %></li>
-      <li><%= user.name %></li>
-      <li><%= user.user %></li>
-      <li><%= user.mail %></li>
-      <li><%= user.telephone %></li>
-
-
-
-      <li><%= link_to 'Edit', edit_user_path(user) %></li>
-      <li><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure ?"%></li>
-      </li>
-  </ul>
-
+    <tbody>
+      <tr class="info">
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.user %></td>
+        <td><%= user.mail %></td>
+        <td><%= user.telephone %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure ?"%></td>
+      </tr>
+    </tbody>
 <% end %>
-
+</table>
 <%= link_to 'New', new_user_path(@user) %>
 
 <p> <%= link_to 'User login', controller: "sessions", action: "new" %> <p>
