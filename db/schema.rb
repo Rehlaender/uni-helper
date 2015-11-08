@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20151108003056) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "category_posts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "description"
@@ -28,6 +34,12 @@ ActiveRecord::Schema.define(version: 20151108003056) do
     t.integer  "category_post_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
