@@ -1,6 +1,7 @@
 class CategoryPostsController < ApplicationController
   def index
     @category_posts = CategoryPost.all
+    @categories = Category.all
   end
 
   def show
@@ -39,6 +40,10 @@ class CategoryPostsController < ApplicationController
     @category_post.destroy
 
     redirect_to category_posts_path
+  end
+
+  def posts
+    @posts = CategoryPost.find(params[:id]).posts
   end
 
   private

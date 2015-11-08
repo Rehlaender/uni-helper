@@ -1,17 +1,5 @@
-<h1>Posts</h1>
+<h1>Posts ellos "Ofrecen"</h1>
 
-<div class="">
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-      Buscar por categorias: <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <% @categories.each do |category| %>
-      <li><a href="<%= posts_category_path(category.id) %>"><%= category.name %></a></li>
-      <% end %>
-    </ul>
-  </div>  
-</div>
 
 
 <table class="table table-striped table-hover">
@@ -35,7 +23,7 @@
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
       <td><%= post.price %></td>
-      <td><%= post.category_post.name %></td>
+<td><%= post.category_post.name %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td><%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure ?"%></td>
     </tr>
