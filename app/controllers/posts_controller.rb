@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @categories = Category.all
   end
 
   def show
@@ -42,9 +43,6 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def places
-    @places = Post.find(params[:id]).places
-  end
 
   private
   def post_params
