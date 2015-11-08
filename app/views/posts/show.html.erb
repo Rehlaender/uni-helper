@@ -1,26 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>ID:
-  <h4><%= @post.id %></h4>
-</p>
-<p>user_id:
-  <h4><%= @post.user.name %></h4>
-</p>
-<p>description:
-  <%= @post.description %>
-</p>
-<p>school_id:
-  <%= @post.school.name %>
-</p>
-<p>category_id:
-  <%= @post.category.name %>
-</p>
-<p>price:
-  <%= @post.price %>
-</p>
-<p>category_post_id:
-  <%= @post.category_post.name %>
-</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>School</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Category_post</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td><%= @post.id %></td>
+      <td><%= @post.user.name %></td>
+      <td><%= @post.description %></td>
+      <td><%= @post.school.name %></td>
+      <td><%= @post.category.name %></td>
+      <td><%= @post.price %></td>
+      <td><%= @post.category_post.name %></td>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

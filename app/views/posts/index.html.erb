@@ -1,21 +1,31 @@
 <h1>Posts</h1>
 
-<% @posts.each do |post| %>
-  <ul>
-      <li><%= post.id %></li>
-      <li><%= post.user.name %></li>
-      <li><%= post.description %></li>
-      <li><%= post.school.name %></li>
-      <li><%= post.category.name %></li>
-      <li><%= post.price %></li>
-      <li><%= post.category_post.name %></li>
-      <li><%= post.created_at %></li>
-
-      <li><%= link_to 'Edit', edit_post_path(post) %></li>
-      <li><%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure ?"%></li>
-      </li>
-  </ul>
-
-<% end %>
-
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>School</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Category_post</th>
+    </tr>
+  </thead>
+  <% @posts.each do |post| %>
+  <tbody>
+    <tr class="info">
+      <td><%= post.id %></td>
+      <td><%= post.user.name %></td>
+      <td><%= post.description %></td>
+      <td><%= post.school.name %></td>
+      <td><%= post.category.name %></td>
+      <td><%= post.price %></td>
+      <td><%= post.category_post.name %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure ?"%></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
 <%= link_to 'New', new_post_path(@post) %>
