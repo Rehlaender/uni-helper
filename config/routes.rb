@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'sessions_admin/new'
+
+  get 'sessions_admins/new'
+
   get 'sessions/new'
 
   get    'login'   => 'sessions#new'
@@ -9,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :users
+  resources :admins
   resources :posts
 
 
