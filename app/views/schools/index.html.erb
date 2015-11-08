@@ -1,0 +1,14 @@
+<h1>school</h1>
+
+<% @schools.each do |school| %>
+  <ul>
+      <li><%= school.id %></li>
+      <li><%= school.name %></li>
+      <li><%= link_to 'Edit', edit_school_path(school) %></li>
+      <li><%= link_to "Delete", school, :method => :delete, :confirm => "Are you sure ?"%></li>
+      </li>
+  </ul>
+
+<% end %>
+
+<%= link_to 'New', new_school_path(@school) %> |
