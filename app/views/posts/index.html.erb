@@ -3,11 +3,12 @@
 <% @posts.each do |post| %>
   <ul>
       <li><%= post.id %></li>
+      <li><%= post.user.name %></li>
       <li><%= post.description %></li>
-      <li><%= post.school_id %></li>
-      <li><%= post.category_id %></li>
+      <li><%= post.school.name %></li>
+      <li><%= post.category.name %></li>
       <li><%= post.price %></li>
-      <li><%= post.category_post_id %></li>
+      <li><%= post.category_post.name %></li>
       <li><%= post.created_at %></li>
 
       <li><%= link_to 'Edit', edit_post_path(post) %></li>

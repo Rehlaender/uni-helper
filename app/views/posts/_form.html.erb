@@ -11,12 +11,12 @@
 
   <p>
     <%= f.label :school_id %>
-    <%= f.text_field :school_id %>
+    <%= f.select :school_id, select_school,{}, class: "form-control" %>
   </p>
 
   <p>
     <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
+    <%= f.select :category_id, select_category,{}, class: "form-control" %>
   </p>
 
   <p>
@@ -26,7 +26,7 @@
 
   <p>
     <%= f.label :category_post_id %>
-    <%= f.text_field :category_post_id %>
+    <%= f.select :category_post_id, select_category_post,{}, class: "form-control" %>
   </p>
 
   <p>
