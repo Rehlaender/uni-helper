@@ -1,0 +1,10 @@
+<%= form_for(@school) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-controll" %>
+  </p>
+
+  <p>
+    <%= f.submit class: "btn btn-success" %>
+  </p>
+<% end %>
