@@ -1,6 +1,6 @@
 class Admin < ActiveRecord::Base
-  validates :user, presence: true, length: { minimum: 3}, uniqueness: true
   validates :name, presence: true, length: { minimum: 3}
+  validates :user, presence: true, length: { minimum: 3}, uniqueness: true
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
