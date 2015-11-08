@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~>3.3.5'
 
 # Use material design for bootstrap
+
 gem 'bootstrap-material-design'
 
 # Use ActiveModel has_secure_password
