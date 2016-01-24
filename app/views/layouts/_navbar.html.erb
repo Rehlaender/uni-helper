@@ -12,35 +12,34 @@
     <% end %>
   </div>
   <% if logged_in? %>
-  <ul class="nav navbar-nav navbar-left">
-        <li><a class="active" href="<%= posts_category_post_path(2) %>">Buscar</a></li>
-        <li class="rayita"><%= link_to '|' , "javascript:void(0)"%></li>
-        <li><%= link_to 'Ofrecer' , new_post_path, :class=>"link" %></li>
+  <ul class="Buttons nav navbar-nav navbar-left">
+        <li><a class="btn-material-green" href="<%= posts_category_post_path(2) %>">Buscan</a></li>
+        <li><a class="btn-material-green" href="<%= posts_category_post_path(1) %>">Ofrecen</a></li>
+        <li><%= link_to 'Postear' , new_post_path, :class=>"btn-material-red" %></li>
   </ul>
   <% else %>
   <% end %>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Nosotros', :aboutus %></li>
-        <li class="rayita"><%= link_to '|' , "javascript:void(0)"%></li>
+  <!--<div class="navbar-collapse collapse navbar-responsive-collapse">-->
+      <ul class="nav navbar-nav navbar-right col-md-pull-1">
+        <li><%= link_to 'Nosotros', :aboutus, :class=>"btn-material-green" %></li>
         <!-- User-->
         <% if logged_in? %>
-        <li class="dropdown-toggle move" data-toggle="dropdown"><i class="mdi-action-account-circle"></i><%= current_user.name %></li>
+        <li class="dropdown btn-material-green">
+          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %>
+            <b class="caret"></b></a>
           <ul class="dropdown-menu">
+            <li><%= link_to 'Mis posts', users_path, :class=>""%></i></li>
+            <li class="divider"></li>
             <li><%= link_to 'Cerrar sesion', logout_path, method: "delete"%></i></li>
           </ul>
         </li>
-        <li class="rayita"><%= link_to '|' , "javascript:void(0)"%></li>
-
-
-
+        <li class="divider"> </li>
         <!-- No user-->
         <% else %>
-        <li><%= link_to 'Iniciar sesion' , login_path %></li>
-        <li class="rayita"><%= link_to '|' , "javascript:void(0)"%></li>
-        <li><%= link_to 'Registrarse' , new_user_path %></li>
-        <li class="rayita"><%= link_to '|' , "javascript:void(0)"%></li>
+        <li><%= link_to 'Iniciar sesion' , login_path, :class=>"btn-material-green" %></li>
+        <li><%= link_to 'Registrarse' , new_user_path, :class=>"btn-material-light-green" %></li>
+        <li class="rayita"><%= link_to '' , "javascript:void(0)"%></li>
         <% end %>
       </ul>
-  </div>
+  <!--</div>-->
 </div>
