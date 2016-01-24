@@ -16,5 +16,17 @@
   <h4>Mail:</h4><br>
   <%= @admin.email %>
 </p>
+<br>
+
+<% if logged_in_admin? %>
+  <p>wea</p>
+<% else %>
+  <p>no wea</p>
+<% end %>
 
 <%= link_to 'Back', admins_path %>
+
+<br>
+
+
+<%= link_to 'Cerrar sesion', admin_logout_path, method: "delete"%>

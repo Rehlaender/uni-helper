@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get 'aboutus', to: 'static_pages#aboutus', as: :aboutus
 
 
-  get 'sessions/new'
 
   get 'admin_login' => 'sessions_admin#new'
+  post 'admin_login' => 'sessions_admin#create'
+  delete 'admin_logout'  => 'sessions_admin#destroy'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
