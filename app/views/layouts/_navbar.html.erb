@@ -24,7 +24,7 @@
         <li><%= link_to 'Nosotros', :aboutus, :class=>"btn-material-green" %></li>
         <!-- User-->
         <% if logged_in? %>
-        <li class="dropdown btn-material-light-green">
+        <li class="dropdown btn-material-green">
           <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-action-account-circle"></i><%= current_user.name %>
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
