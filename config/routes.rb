@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'start', to: 'static_pages#start', as: :start
   get 'home', to: 'static_pages#home', as: :home
   get 'aboutus', to: 'static_pages#aboutus', as: :aboutus
+  get 'administration', to: 'static_pages#administration', as: :administration
 
 
 
