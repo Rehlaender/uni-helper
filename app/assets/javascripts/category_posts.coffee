@@ -4,10 +4,7 @@
 ready = ->
   $('select[name="mapCat"]').change ->
     chosenCat = $(this).val()
-    #var className = $('#mapContent ul li.');
-    $('#mapContent ul li').show()
     $('#mapContent tr').show()
-    $('#mapContent ul li').not('.' + chosenCat).hide()
     $('#mapContent tr').not('.' + chosenCat).hide()
     return
 $(document).ready(ready)

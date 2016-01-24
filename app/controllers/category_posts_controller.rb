@@ -45,6 +45,7 @@ class CategoryPostsController < ApplicationController
   def posts
     @posts = CategoryPost.find(params[:id]).posts
     @categories = Category.all
+    @schools = School.all
   end
 
   private
