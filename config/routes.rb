@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'static_pages#start'
-  
+
   get 'start', to: 'static_pages#start', as: :start
   get 'home', to: 'static_pages#home', as: :home
   get 'aboutus', to: 'static_pages#aboutus', as: :aboutus
@@ -20,7 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do
+    member do
+      get 'posts', to: 'users#posts'
+    end
+  end
+
   resources :admins
   resources :posts
   resources :schools

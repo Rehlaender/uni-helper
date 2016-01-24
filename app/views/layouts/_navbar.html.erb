@@ -25,10 +25,10 @@
         <!-- User-->
         <% if logged_in? %>
         <li class="dropdown btn-material-green">
-          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %>
+          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-action-account-circle"></i><%= current_user.name %>
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Mis posts', users_path, :class=>""%></i></li>
+            <li><%= link_to 'Mis posts', posts_user_path(1), :class=>""%></i></li>
             <li class="divider"></li>
             <li><%= link_to 'Cerrar sesion', logout_path, method: "delete"%></i></li>
           </ul>
