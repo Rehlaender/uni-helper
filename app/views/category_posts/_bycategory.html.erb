@@ -1,12 +1,8 @@
 <div class="">
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-      Buscar por categorias: <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
+  <select name="mapCat" class="btn btn-group dropdown-menu">
+      <option>Buscar por categorias:</option>
       <% @categories.each do |category| %>
-      <li><a href="<%= posts_category_path(category.id) %>"><%= category.name %></a></li>
+      <option value="<%= category.name %>"><%= category.name %></option>
       <% end %>
-    </ul>
-  </div>
+  </select>
 </div>

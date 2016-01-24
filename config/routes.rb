@@ -26,16 +26,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :admins
-  resources :posts
-  resources :schools
   resources :category_posts do
     member do
       get 'posts', to: 'category_posts#posts'
     end
   end
 
-
-
-
+  resources :admins
+  resources :posts
+  resources :schools
 end
