@@ -13,8 +13,8 @@
   </div>
   <% if logged_in? %>
   <ul class="Buttons nav navbar-nav navbar-left">
-        <li><a class="btn-material-green" href="<%= posts_category_post_path(2) %>">Buscan</a></li>
-        <li><a class="btn-material-green" href="<%= posts_category_post_path(1) %>">Ofrecen</a></li>
+        <li><a class="btn-material-green" href="<%= posts_category_post_path(2) %>">Ofrecen</a></li>
+        <li><a class="btn-material-green" href="<%= posts_category_post_path(1) %>">Buscan</a></li>
         <li><%= link_to 'Postear' , new_post_path, :class=>"btn-material-red" %></li>
   </ul>
   <% else %>

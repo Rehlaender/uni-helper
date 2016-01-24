@@ -11,6 +11,12 @@
   </p>
 -->
   <p>
+    <%= f.label "Categoria de oferta" %>
+
+    <%= f.select :category_post_id, select_category_post,{}, class: "form-control" %>
+    <%= f.select :category_id, select_category,{}, class: "form-control" %>
+  </p>
+  <p>
     <%= f.label "Descripcion" %>
     <%= f.text_field :description, class: "form-control" %>
   </p>
@@ -20,23 +26,13 @@
     <%= f.select :school_id, select_school,{}, class: "form-control" %>
   </p>
 
-  <p>
-    <%= f.label "Categoria de oferta" %>
-    <%= f.select :category_id, select_category,{}, class: "form-control" %>
-  </p>
+
 
   <p>
     <%= f.label "Precio" %>
     <%= f.text_field :price, class: "form-control" %>
   </p>
 
-
-
-<!-- no hubo tiempo para implementar el "Necesito"
-  <p>
-    <%= f.select :category_post_id, select_category_post,{}, class: "form-control" %>
-  </p>
--->
   <p class="text-center">
     <%= f.submit :class => "btn btn-success"%>
   </p>
