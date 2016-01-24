@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id if current_user
+    #parche
     @post.category_post_id = 2
     if @post.save
      redirect_to @post
