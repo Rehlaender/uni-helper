@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
   end
 
   def administration
-    redirect_to root_url unless !current_admin.nil?
+    redirect_to admin_login_url unless !current_admin.nil?
   end
 
 end
