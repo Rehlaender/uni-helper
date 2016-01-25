@@ -15,6 +15,8 @@ ready = ->
       category = "Buscan:"
       $('#userdo').empty().append message + category
       return
+    else
+      return
     return
 
   $('select[name="mapCat"]').change ->
@@ -22,6 +24,6 @@ ready = ->
     $('#mapContent tr').show()
     $('#mapContent tr').not('.' + chosenCat).hide()
     return
-    
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
