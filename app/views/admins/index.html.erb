@@ -1,34 +1,30 @@
 <h1>Admins</h1>
 
-<% @admins.each do |admin| %>
-  <ul>
-      <p>
-        <h4>Name:</h4>
-        <%= admin.name %>
-      </p>
 
-      <p>
-        <h4>User:</h4>
-        <%= admin.user %>
-      </p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>admin</th>
+      <th>Mail</th>
+    </tr>
+  </thead>
 
-      <p>
-        <h4>email:</h4>
-        <%= admin.email %>
-      <p>
+  <% @admins.each do |admin| %>
+      <tbody>
+        <tr class="info">
+          <td><%= admin.id %></td>
+          <td><%= admin.name %></td>
+          <td><%= admin.user %></td>
+          <td><%= admin.email %></td>
+          <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+          <td><%= link_to "Delete", admin, :method => :delete, :confirm => "Are you sure ?"%></td>
+        </tr>
+      </tbody>
+  <% end %>
+  </table>
 
-
-  </ul>
-
-  <p>
-
-    <%= link_to " Delete ", admin, :method => :delete, :confirm => "Are you sure ?"%>
-        <%= link_to ' Edit ', edit_admin_path(admin) %>
-  </p>
-
-  <br>
-
-
-<% end %>
-
-<%= link_to 'New', new_admin_path %>
+<div align="center">
+<%= link_to 'New', new_admin_path ,:class => "btn btn-raised btn-success" %>
+</div>
