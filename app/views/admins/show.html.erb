@@ -1,32 +1,28 @@
 <p id="notice"><%= notice %></p>
-
-<h1> User..</h1>
-
-<p>
-  <h4>Nombre:</h4><br>
-  <%= @admin.name %>
-</p>
-
-<p>
-  <h4>User:</h4><br>
-  <%= @admin.user %>
-</p>
-
-<p>
-  <h4>Mail:</h4><br>
-  <%= @admin.email %>
-</p>
-<br>
-
-<% if logged_in_admin? %>
-  <p>wea</p>
-<% else %>
-  <p>no wea</p>
-<% end %>
-
-<%= link_to 'Back', admins_path %>
-
-<br>
+<div class="jumbotron col-md-6 col-md-offset-3">
+  <h1 class="text-center">Administrador <%= @admin.name %></h1>
 
 
-<%= link_to 'Cerrar sesion', admin_logout_path, method: "delete"%>
+  <h3>Usuario</h3>
+  <div class="well">
+    <%= @admin.user %>
+  </div>
+
+  <h3>Email</h3>
+  <div class="well">
+    <%= @admin.email %>
+  </div>
+
+  <br>
+
+  <% if logged_in_admin? %>
+  <%= link_to 'Cerrar sesion', admin_logout_path, method: "delete"%>
+  <% else %>
+
+  <% end %>
+
+  <p>
+  <%= link_to 'Back', admins_path %>
+  </p>
+
+</div>
