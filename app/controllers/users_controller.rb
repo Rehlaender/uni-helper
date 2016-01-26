@@ -46,8 +46,8 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def places
-    @places = User.find(params[:id]).places
+  def posts
+    @posts = User.find(params[:id]).posts    
   end
 
   private

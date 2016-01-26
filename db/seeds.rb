@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-CategoryPost.create(id: 1, name: "Buscar")
+CategoryPost.create(id: 1, name: "Busco")
 CategoryPost.create(id: 2, name: "Ofrezco")
 Category.create(id: 1, name: "Servicio")
 Category.create(id: 2, name: "Articulo")
