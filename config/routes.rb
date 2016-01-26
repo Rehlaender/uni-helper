@@ -38,4 +38,5 @@ Rails.application.routes.draw do
   resources :admins
   resources :posts
   resources :schools
+  resources :events
 end
