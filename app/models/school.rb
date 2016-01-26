@@ -3,4 +3,6 @@ class School < ActiveRecord::Base
                    length: { minimum: 2  }
 
   has_many :posts
+
+  has_many :events
 end
