@@ -43,8 +43,8 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
-  def places
-    @places = Category.find(params[:id]).places
+  def posts
+    @posts = Category.find(params[:id]).posts
   end
 
   private

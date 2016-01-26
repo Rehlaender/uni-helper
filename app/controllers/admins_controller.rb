@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+    before_action :admin_logged_in, only: [:index, :show, :new, :create, :update, :edit, :destroy]
 
     def index
       @admins = Admin.all
@@ -45,7 +46,16 @@ class AdminsController < ApplicationController
     end
 
     private
+
+    def admin_logged_in
+      unless logged_in_admin?
+        redirect_to(admin_login_url)
+      end
+    end
+
     def admin_params
       params.require(:admin).permit(:name, :user, :email, :password, :password_confirmation)
     end
+
+
 end

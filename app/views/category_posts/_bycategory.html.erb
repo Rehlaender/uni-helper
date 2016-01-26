@@ -1,0 +1,8 @@
+<div class="">
+  <select name="mapCat" class="btn btn-group dropdown-menu">
+      <option>Buscar por categorias:</option>
+      <% @categories.each do |category| %>
+      <option value="<%= category.name %>"><%= category.name %></option>
+      <% end %>
+  </select>
+</div>

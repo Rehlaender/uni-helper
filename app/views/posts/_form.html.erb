@@ -1,38 +1,39 @@
 <div class="jumbotron col-md-6 col-md-offset-3">
 <%= form_for(@post) do |f| %>
   <p>
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id, class: "form-control"%>
+    <%= f.label "Categoria de oferta" %>
+    <p>
+      <% @categories = CategoryPost.all %>
+      <% @categories.each do |category| %>
+        <%= category.name %>
+        <%= f.radio_button(:category_post_id, category.id) %>
+      <% end %>
+    </p>
+    <%= f.select :category_id, select_category,{}, class: "form-control" %>
   </p>
-
   <p>
-    <%= f.label :description %>
+    <%= f.label "Descripcion" %>
     <%= f.text_field :description, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :school_id %>
+    <%= f.label "A que facultad va orientado el post?" %>
     <%= f.select :school_id, select_school,{}, class: "form-control" %>
   </p>
 
-  <p>
-    <%= f.label :category_id %>
-    <%= f.select :category_id, select_category,{}, class: "form-control" %>
-  </p>
+
 
   <p>
-    <%= f.label :price %>
+    <%= f.label "Precio" %>
     <%= f.text_field :price, class: "form-control" %>
   </p>
 
-  <p>
-    <%= f.label :category_post_id %>
-    <%= f.select :category_post_id, select_category_post,{}, class: "form-control" %>
-  </p>
 
   <p class="text-center">
     <%= f.submit :class => "btn btn-success"%>
   </p>
 <% end %>
-<%= link_to 'Back', posts_path %>
+
+<%= link_to 'Regresar', :back, :class=>"btn btn-info" %>
+
 </div>

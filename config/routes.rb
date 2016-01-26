@@ -5,26 +5,38 @@ Rails.application.routes.draw do
   get 'start', to: 'static_pages#start', as: :start
   get 'home', to: 'static_pages#home', as: :home
   get 'aboutus', to: 'static_pages#aboutus', as: :aboutus
+  get 'administration', to: 'static_pages#administration', as: :administration
 
-  get 'sessions_admin/new'
 
-  get 'sessions_admins/new'
 
-  get 'sessions/new'
+  get 'admin_login' => 'sessions_admin#new'
+  post 'admin_login' => 'sessions_admin#create'
+  delete 'admin_logout'  => 'sessions_admin#destroy'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  resources :categories do
+    member do
+      get 'posts',to: 'categories#posts'
+    end
+  end
 
+  resources :users do
+    member do
+      get 'posts', to: 'users#posts'
+    end
+  end
 
-  resources :categories
-  resources :users
+  resources :category_posts do
+    member do
+      get 'posts', to: 'category_posts#posts'
+    end
+  end
+
   resources :admins
   resources :posts
   resources :schools
-  resources :category_posts
-
-
-
+  resources :events
 end

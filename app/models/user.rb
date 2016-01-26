@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  has_many :events
+
   validates :name, presence: true, length: { minimum: 3}
 
   validates :user, presence: true, length: { minimum: 3}, uniqueness: true
@@ -13,6 +15,7 @@ class User < ActiveRecord::Base
   validates :telephone, presence: true, length: {minimum: 6}
 
   has_secure_password
+
   validates :password, presence: true, length: { minimum: 6 }
 
 end
