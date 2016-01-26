@@ -2,22 +2,19 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
-  message = $('#userdo').html()
-  $("#Botones a").click ->
-    #alert "You clicked on the sub-div with id = " + this.id
-    category = this.id
-    alert category
-    if category == 'Busco'
-      category = "Ofrecen:"
-      $('#userdo').empty().append message + category
-      return
-    else if category == 'Ofrezco'
-      category = "Buscan:"
-      $('#userdo').empty().append message + category
-      return
-    else
-      return
-    return
+  # message = $('#userdo').html()
+  # $("#Botones a").click ->
+  #   #alert "You clicked on the sub-div with id = " + this.id
+  #   category = this.id
+  #   alert category
+  #   if category == 'Busco'
+  #     category = "Ofrecen:"
+  #     $('#userdo').empty().append message + category
+  #   else if category == 'Ofrezco'
+  #     category = "Buscan:"
+  #     $('#userdo').empty().append message + category
+  #   else
+  #   return
 
   $('select[name="mapCat"]').change ->
     chosenCat = $(this).val()
