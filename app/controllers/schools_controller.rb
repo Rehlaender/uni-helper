@@ -44,6 +44,7 @@ class SchoolsController < ApplicationController
 
   def events
     @events = School.find(params[:id]).events
+    @school = School.find(params[:id])
   end
 
   private
