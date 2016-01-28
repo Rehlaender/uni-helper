@@ -1,12 +1,16 @@
 class EventsController < ApplicationController
-  before_action :user_in_logged, only:[:index, :new, :create, :edit, :update, :destroy]
+  before_action :user_in_logged, only:[:new, :create, :edit, :update, :destroy]
 
   def index
     @events = Event.all
   end
 
-  def new
+  def show
     @event = Event.find(params[:id])
+  end
+
+  def new
+    @event = Event.new
   end
 
   def create
@@ -41,7 +45,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :school_id,:user_id)
+      params.require(:event).permit(:name, :school_id,:user_id, :description)
     end
 
 end
