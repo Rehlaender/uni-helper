@@ -35,6 +35,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :schools do
+    member do
+      get 'events', to: 'schools#events'
+    end
+  end
+
   resources :admins
   resources :posts
   resources :schools

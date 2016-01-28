@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @schools = School.all
   end
 
   def show
@@ -41,6 +42,11 @@ class EventsController < ApplicationController
     @post.destroy
     redirect_to events_path
   end
+
+  #def schools
+  #  @schools = Event.find(params[:id]).schools
+  #end
+
 
 
   private

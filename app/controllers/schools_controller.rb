@@ -42,9 +42,13 @@ class SchoolsController < ApplicationController
     redirect_to schools_path
   end
 
-  private
-  def school_params
-    params.require(:school).permit(:name)
+  def events
+    @events = School.find(params[:id]).events
   end
+
+  private
+    def school_params
+      params.require(:school).permit(:name)
+    end
 
 end

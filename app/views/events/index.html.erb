@@ -12,6 +12,7 @@
 
     <div class="col-md-1 col-md-offset-1">
       <%= link_to "Crear evento", new_event_path, :class => "btn btn-raised btn-success"%>
+
     </div>
 
     <div class="jumbotron col-md-6 col-md-offset-1">
@@ -41,4 +42,16 @@
 
     </div>
 
-  <div>
+    <div class="col-md-1 col-md-offset-1 ">
+
+        <h1 class="header  under-navbar">
+          Facultades
+        </h1>
+
+      <% @schools.each do  |school| %>
+        <li> <%= link_to "#{school.name}", events_school_path(school.id) %> </li>
+      <% end %>
+
+    </div>
+
+  </div>
