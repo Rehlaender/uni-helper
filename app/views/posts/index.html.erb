@@ -12,7 +12,7 @@
     <% @posts.each do |post| %>
       <div class="panel-success <%= post.category.name %> <%= post.school.name %> col-md-4 col-sm-6" id="post">
         <div class="panel-heading" >
-          <h5>Post por: <a id='userlink' href='<%= user_path(post.user.id)%>'> <%= post.user.name %></a></h5>
+          <h5>Post por: <a id='userlink' href='<%= user_path(post.user.id)%>'> <%= post.user.name %></a> | $<%= post.price %></h5>
         </div>
         <div class="panel-body">
           <%= post.category_post.name %> <%= post.description %>
