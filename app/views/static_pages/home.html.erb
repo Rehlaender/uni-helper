@@ -9,11 +9,9 @@
       ¿Hoy vamos a?
     </p>
     <p>
-      <!-- falta validacion en cuanto a nombre segun la base de datos
-      <a class="btn btn-material-cyan" href="<%= posts_category_post_path(2) %>"><%= CategoryPost.find(2).name %></a>
-      -->
-      <%= link_to 'Posts' , posts_path, :class=>"btn btn-material-green" %>
+      <%= link_to 'Ver posts' , posts_path, :class=>"btn btn-material-green" %>
       <%= link_to 'Postear' , new_post_path, :class=>"btn btn-material-red" %>
+      <%= link_to 'Mis posts' , posts_user_path(current_user.id), :class=>"btn btn-material-cyan" %>
     </p>
   </div>
 </div>
