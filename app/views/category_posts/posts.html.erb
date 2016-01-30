@@ -54,7 +54,7 @@
   -->
   <div class="row">
   <% @posts.each do |post| %>
-      <div class="panel-success <%= post.category.name %> <%= post.school.name %> col-md-3" id="post">
+      <div class="panel-success <%= post.category.name %> <%= post.school.name %> col-md-3 col-sm-3" id="post">
         <div class="panel-heading" >
           <h5>Post por: <a id='userlink' href='<%= user_path(post.user.id)%>'> <%= post.user.name %></a></h5>
         </div>

@@ -1,38 +1,35 @@
 <p id="notice"><%= notice %></p>
+<div class="jumbotron col-sm-offset-2 col-md-offset-3 col-md-6 col-sm-8">
+  <div class="container">
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <!--<th>ID</th>-->
-      <th>Posteador</th>
-      <th>Descripcion</th>
-      <th>Orientado a la facultad</th>
-      <th>Categoria</th>
-      <th>Costo</th>
-      <!--<th>Category_post</th>-->
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="info">
-      <!--<td><%= @post.id %></td>-->
-      <!--<td><%= @post.user.name %></td>-->
-      <td><a href='<%= user_path(@post.user.id)%>'> <%= @post.user.name %></a></td>
-      <td><%= @post.description %></td>
-      <td><%= @post.school.name %></td>
-      <td><%= @post.category.name %></td>
-      <td><%= @post.price %></td>
-      <!--<td><%= @post.category_post.name %></td>-->
-    </tr>
-  </tbody>
-</table>
+    <div class="panel-success ">
+      <div class="panel-heading">
+        <p>
+          <strong><%= @post.category_post.name %></strong>: <%= @post.description %>
+        </p>
+      </div>
+      <div class="panel-body">
+        <% if @post.category_post.name == 'Busco' %>
+            <p>Estoy dispuesto a pagar: $<%= @post.price %></p>
+        <% elsif @post.category_post.name == 'Ofrezco' %>
+            <p>Precio: $<%= @post.price %></p>
+        <% else %>
+            $
+        <% end %>
+      </div>
+      <div class="panel-footer">
+        Post recomendado para la facultad: <strong><%= @post.school.name %>. </strong>
+        Post por: <a href='<%= user_path(@post.user.id)%>'> <%= @post.user.name %></a>
+      </div>
+      <p>
+        <a class="btn btn-info" href="<%= posts_category_post_path(@post.category_post_id) %>">Regresar</a>
+        <% if @post.user_id == current_user.id %>
+        <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary' %>
+        <% else %>
+        <!--no es tu post -->
+        <% end %>
+      </p>
+    </div>
+  </div>
 
-
-<p>
-  <a class="btn btn-info" href="<%= posts_category_post_path(2) %>">Regresar</a>
-  <!-- Este metodo de "Back" es una mexicanada, cambiar cuando se resuelva el loop de 2 link_to :back #jeje
-  <%= link_to 'Regresar', :back %> -->
-</p>
-<!--
-<%= link_to 'Edit', edit_post_path(@post) %> |
-
--->
+</div>
