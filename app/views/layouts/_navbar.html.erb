@@ -13,18 +13,7 @@
   </div>
   <% if logged_in? %>
   <ul class="Buttons nav navbar-nav navbar-left ">
-    <% @category_posts = CategoryPost.all %>
-    <% @category_posts.each do |category| %>
-        <li id="Botones"><a class="btn-material-green" id="<%= category.name %>" href="<%= posts_category_post_path(category.id) %>">
-              <% if category.name == "Busco" %>
-                Vender
-                <% elsif category.name == "Ofrezco" %>
-                Comprar
-                <% else %>
-              <% end %>
-            </a>
-        </li>
-        <% end %>
+        <li><%= link_to 'Posts' , posts_path, :class=>"btn-material-green" %></li>
         <li><%= link_to 'Postear' , new_post_path, :class=>"btn-material-red" %></li>
   </ul>
   <% else %>
