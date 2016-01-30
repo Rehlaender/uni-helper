@@ -18,9 +18,10 @@ ready = ->
 
   $('select[name="mapCat"]').change ->
     chosenCat = $(this).val()
-    $('#mapContent tr').show()
-    $('#mapContent tr').not('.' + chosenCat).hide()
+    $('#mapContent div').show()
+    $('#mapContent div').not('.' + chosenCat).hide()
     return
+  
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

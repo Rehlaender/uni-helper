@@ -12,14 +12,14 @@
     <% end %>
   </div>
   <% if logged_in? %>
-  <ul class="Buttons nav navbar-nav navbar-left">
+  <ul class="Buttons nav navbar-nav navbar-left ">
     <% @category_posts = CategoryPost.all %>
     <% @category_posts.each do |category| %>
         <li id="Botones"><a class="btn-material-green" id="<%= category.name %>" href="<%= posts_category_post_path(category.id) %>">
               <% if category.name == "Busco" %>
-                Ofrecer
+                Vender
                 <% elsif category.name == "Ofrezco" %>
-                Buscar
+                Comprar
                 <% else %>
               <% end %>
             </a>
@@ -30,26 +30,25 @@
   <% else %>
   <% end %>
   <!--<div class="navbar-collapse collapse navbar-responsive-collapse">-->
-      <ul class="nav navbar-nav navbar-right col-md-pull-1">
-        <li><%= link_to 'Nosotros', :aboutus, :class=>"btn-material-green" %></li>
-        <!-- User-->
-        <% if logged_in? %>
-        <li class="dropdown btn-material-green">
-          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-action-account-circle"></i><%= current_user.name %>
-            <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Mis posts', posts_user_path(current_user.id), :class=>""%></i></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Cerrar sesion', logout_path, method: "delete"%></i></li>
-          </ul>
-        </li>
-        <li class="divider"> </li>
-        <!-- No user-->
-        <% else %>
-        <li><%= link_to 'Iniciar sesion' , login_path, :class=>"btn-material-green" %></li>
-        <li><%= link_to 'Registrarse' , new_user_path, :class=>"btn-material-light-green" %></li>
-        <li class="rayita"><%= link_to '' , "javascript:void(0)"%></li>
-        <% end %>
-      </ul>
-  <!--</div>-->
+      <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Nosotros', :aboutus, :class=>"btn-material-green" %></li>
+          <!-- User-->
+          <% if logged_in? %>
+          <li class="dropdown btn-material-green">
+            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-action-account-circle"></i><%= current_user.name %>
+              <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Mis posts', posts_user_path(current_user.id), :class=>""%></i></li>
+              <li class="divider"></li>
+              <li><%= link_to 'Cerrar sesion', logout_path, method: "delete"%></i></li>
+            </ul>
+          </li>
+          <!-- No user-->
+          <% else %>
+          <li><%= link_to 'Iniciar sesion' , login_path, :class=>"btn-material-green" %></li>
+          <li><%= link_to 'Registrarse' , new_user_path, :class=>"btn-material-light-green" %></li>
+          <% end %>
+        </ul>
+      </div>
 </div>
