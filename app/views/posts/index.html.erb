@@ -1,17 +1,16 @@
-<h2 class="posts_titulo" id="userdo">
-  Por ahora los usuarios postearon
-</h2>
+<div class="row posts_titulo">
+  <h2 class="" id="userdo">
+    Por ahora los usuarios postearon
+  </h2>
+  <%= render 'botones' %>
+</div>
 
 <%= render 'patrocinados' %>
+
 <div class="jumbotron  col-sm-offset-3 col-sm-9 col-md-offset-3 col-md-9">
-
-  <div class="row">
-
-  </div>
-
-  <div class="row">
+  <div class="row row-eq-height">
     <% @posts.each do |post| %>
-      <div class="panel-success <%= post.category.name %> <%= post.school.name %> col-md-4 col-sm-4" id="post">
+      <div class="panel-success <%= post.category.name %> <%= post.school.name %> col-md-4 col-sm-6" id="post">
         <div class="panel-heading" >
           <h5>Post por: <a id='userlink' href='<%= user_path(post.user.id)%>'> <%= post.user.name %></a></h5>
         </div>
