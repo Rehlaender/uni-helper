@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :promotions
   resources :admins
   resources :posts
   resources :schools

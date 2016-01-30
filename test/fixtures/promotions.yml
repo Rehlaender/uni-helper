@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paid_at: 
+  post_id: 1
+  reference: MyString
+
+two:
+  paid_at: 
+  post_id: 1
+  reference: MyString
