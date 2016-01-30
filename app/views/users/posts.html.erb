@@ -7,7 +7,10 @@
       <th>Orientado a la facultad</th>
       <th>Categoria</th>
       <th>Costo</th>
-      <!--<th>Category_post</th>-->
+      <th>Tipo de post</th>
+      <th>Mostrar</th>
+      <th>Editar</th>
+      <th>Borrar</th>
     </tr>
   </thead>
   <% @posts.each do |post| %>
@@ -18,12 +21,10 @@
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
       <td><%= post.price %></td>
-      <!--<td><%= post.category_post.name %></td>-->
+      <td><%= post.category_post.name %></td>
       <td><%= link_to '<i class="mdi-action-search"></i>'.html_safe, post %></td>
-      <!--Solo para admin
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure ?"%></td>
-      -->
+      <td><%= link_to '<i class="mdi-content-create"></i>'.html_safe, edit_post_path(post) %></td>
+      <td><%= link_to '<i class="mdi-action-delete"></i>'.html_safe, post, :method => :delete, :confirm => "Estas seguro?"%></td>
     </tr>
   </tbody>
   <% end %>
