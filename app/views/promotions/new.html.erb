@@ -1,0 +1,20 @@
+<h1 class="text-center">Promocionar post <%= @promotion.post_id %> </h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 jumbotron">
+    <%= form_for(@promotion) do |f| %>
+      <p>
+        <%= f.label 'Hacer el depósito al siguiente número de HSBC'%>
+        <div class="well">
+          1234 - 5678 - 9012 - 1456
+        </div>
+      </p>
+
+      <p class="text-center">
+        <%= f.button  :submit, name: "post_params", value: @promotion.post_id %>
+      </p>
+
+    <% end %>
+
+  </div>
+</div>

@@ -1,25 +1,28 @@
 class PromotionsController < ApplicationController
-  before_action :user_is_logged, only:[:new, :create ]
-  before_action :admin_logged_in, onle:[:index, :edit, :update, :destroy]
+  before_action :user_in_logged, only:[:new, :create ]
+  before_action :admin_logged_in, only:[:index, :edit, :update, :destroy]
 
   def index
     @promotions = Promotion.all
   end
 
   def show
-    @promotion = Promotion.fin(params[:id])
+    @promotion = Promotion.find(params[:id])
   end
 
   def new
     @promotion = Promotion.new
+    @post = Post.find(params[:post_param])
+    @promotion.post_id = @post.id
   end
 
-  def create(post_id)
+  def create
     @promotion = Promotion.new
-    @promotion.post_id = post_id
+    @post = Post.find(params[:post_params])
+    @promotion.post_id = @post.id
     if @promotion.save
       #Pagina que asegura que la peticion fue exitosa
-      redirect_to success_promotion_path
+      redirect_to @promotion
     else
       redirect_to error_promotion_path
     end
@@ -54,5 +57,9 @@ class PromotionsController < ApplicationController
   def prom
   end
 
+  private
+    def promotion_params
+      #params.require(:promotion).permit(:post_id)
+    end
 
 end

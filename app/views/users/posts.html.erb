@@ -7,6 +7,7 @@
       <th>Orientado a la facultad</th>
       <th>Categoria</th>
       <th>Costo</th>
+      <th>Promocionar</th>
       <!--<th>Category_post</th>-->
     </tr>
   </thead>
@@ -18,6 +19,7 @@
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
       <td><%= post.price %></td>
+      <td><%= link_to "Promocionar", new_promotion_path(post_param: post.id) %></td>
       <!--<td><%= post.category_post.name %></td>-->
       <td><%= link_to '<i class="mdi-action-search"></i>'.html_safe, post %></td>
       <!--Solo para admin
