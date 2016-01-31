@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125174944) do
+ActiveRecord::Schema.define(version: 20160130230113) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 20160125174944) do
     t.datetime "end_date"
     t.integer  "school_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -54,8 +55,18 @@ ActiveRecord::Schema.define(version: 20160125174944) do
     t.integer  "category_id"
     t.float    "price"
     t.integer  "category_post_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "promoted",         default: false
+  end
+
+  create_table "promotions", force: :cascade do |t|
+    t.integer  "post_id"
+    t.datetime "paid_at"
+    t.string   "reference"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "paid",       default: false
   end
 
   create_table "schools", force: :cascade do |t|

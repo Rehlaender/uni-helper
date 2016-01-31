@@ -11,6 +11,8 @@
       <th>Mostrar</th>
       <th>Editar</th>
       <th>Borrar</th>
+
+      <th>Promocionar</th>
     </tr>
   </thead>
   <% @posts.each do |post| %>
@@ -19,11 +21,14 @@
       <td><%= post.description %></td>
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
-      <td>$<%= post.price %></td>
       <td><%= post.category_post.name %></td>
+      <td>$<%= post.price %></td>
+
       <td><%= link_to '<i class="mdi-action-search"></i>'.html_safe, post %></td>
       <td><%= link_to '<i class="mdi-content-create"></i>'.html_safe, edit_post_path(post) %></td>
       <td><%= link_to '<i class="mdi-action-delete"></i>'.html_safe, post, :method => :delete, :confirm => "Estas seguro?"%></td>
+      <td><%= link_to "Promocionar", new_promotion_path(post_param: post.id) %></td>
+
     </tr>
   </tbody>
   <% end %>

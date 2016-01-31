@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron col-md-6 col-md-offset-3">
+  <h1 class="text-center"><%= @event.name %></h1>
+
+
+  <h3>Organizado por</h3>
+  <div class="well">
+    <%= @event.user.name %>
+  </div>
+
+  <h3>Lugar</h3>
+  <div class="well">
+    <%= @event.school.name%>
+  </div>
+
+  <h3>Descripción</h3>
+  <div class="well">
+    <%= @event.description %>
+  </div>
+
+  <p>
+  <%= link_to 'Back', events_path %>
+  </p>
+
+</div>

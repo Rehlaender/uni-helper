@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include SessionsAdminHelper
   include PostsHelper
-
-  
+  include UsersHelper
+  include AdminsHelper
 
 end

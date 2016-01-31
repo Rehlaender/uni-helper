@@ -47,11 +47,6 @@ class AdminsController < ApplicationController
 
     private
 
-    def admin_logged_in
-      unless logged_in_admin?
-        redirect_to(admin_login_url)
-      end
-    end
 
     def admin_params
       params.require(:admin).permit(:name, :user, :email, :password, :password_confirmation)

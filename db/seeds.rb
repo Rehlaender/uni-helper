@@ -16,3 +16,4 @@ School.create(id: 3, name: "FOD")
 School.create(id: 4, name: "FARQ")
 
 User.create(name: "maemae", user: "maemae", mail: "maemae@gmail.com", telephone: "818098374", password: "maemae")
+Admin.create(name: "billowblut", user: "billowblut", email: "blut@gmail.com", password: "123456")

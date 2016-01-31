@@ -1,11 +1,17 @@
 class EventsController < ApplicationController
+  before_action :user_in_logged, only:[:new, :create, :edit, :update, :destroy]
 
   def index
     @events = Event.all
+    @schools = School.all
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   def new
-    @event = Event.find(params[:id])
+    @event = Event.new
   end
 
   def create
@@ -37,10 +43,15 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  #def schools
+  #  @schools = Event.find(params[:id]).schools
+  #end
+
+
 
   private
     def event_params
-      params.require(:event).permit(:name, :school_id,:user_id)
+      params.require(:event).permit(:name, :school_id,:user_id, :description)
     end
 
 end
