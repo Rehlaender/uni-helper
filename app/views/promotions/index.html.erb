@@ -16,7 +16,7 @@
       <% @promotions.each do |promotion| %>
         <tbody>
           <tr>
-            <td><%= link_to promotion.id %></td>
+            <td><%= link_to "#{promotion.id}", edit_promotion_path(promotion) %></td>
             <td><%= promotion.post_id %></td>
             <td><%= promotion.created_at %></td>
             <td><%= promotion.paid %></td>
