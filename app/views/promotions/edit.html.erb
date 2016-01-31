@@ -1,0 +1,33 @@
+<h1 class="text-center">Edit Promotion</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 jumbotron">
+    <%= form_for(@promotion) do |f| %>
+
+      <p>
+        <%= f.label 'Id del pago'%>
+        <div class="well">
+          <%= @promotion.id %>
+        </div>
+      </p>
+
+      <p>
+        <%= f.label 'Id del post'%>
+        <div class="well">
+          <%= @promotion.post_id %>
+        </div>
+      </p>
+
+      <p>
+        <%= f.label "Referencia" %>
+        <%= f.text_field :reference, class: "form-control" %>
+      </p>
+
+      <p class="text-center">
+        <%= f.button  :submit, name: "post_paramz", value: @promotion.post_id %>
+      </p>
+
+    <% end %>
+
+  </div>
+</div>

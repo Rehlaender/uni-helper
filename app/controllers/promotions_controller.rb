@@ -34,11 +34,16 @@ class PromotionsController < ApplicationController
 
   def update
     @promotion = Promotion.find(params[:id])
-    if @promotion.update
+    @promotion.paid = true
+
+    @post = Post.find(params[:post_paramz])
+    @post.update(promoted: true)
+
+    if @promotion.update(promotion_params)
       #Página que asegura que el registro del pago se proceso por completo
-      redirect_to prom_promotion_path
+      redirect_to promotions_path
     else
-      redirect_to error_promotion_path
+      redirect_to edit_promotion_path
     end
   end
 
@@ -59,7 +64,7 @@ class PromotionsController < ApplicationController
 
   private
     def promotion_params
-      #params.require(:promotion).permit(:post_id)
+      params.require(:promotion).permit(:post_id, :reference, :paid)
     end
 
 end
