@@ -36,12 +36,11 @@ class PromotionsController < ApplicationController
     @promotion = Promotion.find(params[:id])
     @promotion.paid = true
 
-    @post = Post.find(@promotion.post_id)
-    @post.promoted = true
+    @post = Post.find(params[:post_paramz])
+    @post.update(promoted: true)
 
     if @promotion.update(promotion_params)
       #Página que asegura que el registro del pago se proceso por completo
-
       redirect_to promotions_path
     else
       redirect_to edit_promotion_path
