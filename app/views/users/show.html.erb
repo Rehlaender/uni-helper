@@ -1,17 +1,18 @@
 <p id="notice"><%= notice %></p>
-<div class="jumbotron col-md-6 col-md-offset-3">
-  <h1 class="text-center">Usuario <%= @user.user %></h1>​
-  <div class="divider"></div>
-    <h3>Nombre</h3>
-    <div class="well">
-      <%= @user.name %>
+<div class="container-fluid eventshow">
+  <div class="row row-eq-height">
+    <div class="leftmargin jumbotron col-md-3 ">
+      <h2 class="text-center"><%= @user.user %></h2>
+      <div class="postpatrocinados_titulo">
+        <h5>Nombre: <small> <%= @user.name %></small></h5>
+        <h5>Email: <small><%= @user.mail%></small></h5>
+        <h5>Telefono: <small><%= @user.telephone%></small></h5>
+        <%= link_to 'Regresar', events_path, :class=>"btn btn-info" %>
+      </div>
     </div>
-    <h3>Email</h3>
-    <div class="well">
-      <%= @user.mail %>
+
+    <div class="jumbotron col-md-offset-1 col-md-7 affixed" id="eventposts">
+      <%= render 'posts' %>
     </div>
-    <h3>Telefono</h3>
-    <div class="well">
-      <%= @user.telephone %>
-    </div>
+  </div>
 </div>
