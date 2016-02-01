@@ -1,3 +1,6 @@
+<% if logged_in_admin? %>
+<%= render 'admin' %>
+<% else %>
 <%= render 'patrocinados' %>
 <div class="row posts_titulo">
   <h2 class="" id="userdo">
@@ -12,3 +15,4 @@
     <%= render 'posts' %>
   </div>
 </div>
+<% end %>
