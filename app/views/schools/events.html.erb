@@ -1,41 +1,42 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h1 class="text-center">Eventos de <%= @school.name %></h1>
+
   </div>
 </div>
-
-<div class="row under-navbar">
-
-  <div class="jumbotron col-md-6 col-md-offset-3">
+<div class="row">
+  <div class="jumbotron col-md-8 col-md-offset-2">
+    <% @hoy = DateTime.now.to_s(:number) %>
     <% @events.each do |event| %>
-
-          <div class="panel panel-success">
-
-            <div class="panel-heading">
-              <h4><%= event.name %></h4>
+      <% @final = event.end_date.to_s(:number) %>
+      <% if @final > @hoy %>
+          <div class="col-md-6">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="text-center">
+                  <%= link_to "<i class='mdi-action-launch'></i>".html_safe, event, class:"eventlink"  %>
+                  <strong><%= link_to event.name, event, class:"eventlink" %></strong>                  
+                </h4>
+              </div>
+              <div class="panel-body">
+                Descripción: <%= event.description %>
+              </div>
+              <div class="panel-body text-center">
+                <%= event.start_date.to_formatted_s(:short) %> / <%= event.end_date.to_formatted_s(:short) %>
+              </div>
+              <div class="panel-footer">
+                Organizado por: <a id='' href='<%= user_path(event.user.id)%>'> <%= event.user.name %></a>
+              </div>
             </div>
-
-            <div class="panel-body">
-              Lugar: <%= event.school.name %>
-            </div>
-
-            <div class="panel-body">
-              Fecha:
-            </div>
-
-            <div class="panel-body">
-              Descripción: <%= event.description %>
-            </div>
-
-
           </div>
+      <% end %>
     <% end %>
-
+    <%= link_to "Regresar", events_path, :class => "btn btn-raised btn-success"%>
   </div>
 </div>
 
 <div class="row under-navbar">
   <div class="col-md-2 col-md-offset-3">
-    <%= link_to "Regresar", events_path, :class => "btn btn-raised btn-success"%>
+
   </div>
 </div>
