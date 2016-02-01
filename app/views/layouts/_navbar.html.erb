@@ -20,6 +20,13 @@
   <% else %>
   <% end %>
 
+  <% if logged_in_admin? %>
+  <ul class="Buttons nav navbar-nav navbar-left ">
+        <li><%= link_to 'Posts' , posts_path, :class=>"btn-material-green" %></li>        
+        <li><%= link_to 'Eventos', events_path, :class=>"btn-material-green" %></li>
+  </ul>
+  <% else %>
+  <% end %>
 
   <!--<div class="navbar-collapse collapse navbar-responsive-collapse">-->
       <div class="container">
