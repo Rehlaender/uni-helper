@@ -18,6 +18,11 @@
           <% else %>
           <% end %>
           <strong><%= post.school.name%></strong>
+          <% if post.event_id == nil %>
+              <small>| sin evento</small>
+          <% else %>
+          | <%= link_to post.event.name, event_path(post.event_id) %>          
+          <% end %>
       </div>
     </div>
     <% end %>
