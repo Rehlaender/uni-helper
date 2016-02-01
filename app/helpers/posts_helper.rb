@@ -34,4 +34,15 @@ module PostsHelper
       end
       final_category_posts
   end
+
+  def select_event
+
+    events = Event.all
+      final_events = [nil]
+
+      events.each do |c|
+        final_events << [c.name, c.id]
+      end
+      final_events
+  end
 end
