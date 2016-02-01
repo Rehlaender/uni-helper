@@ -15,13 +15,13 @@
     <p>
       <%= f.label 'Fecha de inicio del evento' %>
       <p class="">
-        <%= f.date_select :start_date,{}, class: "btn btn-success" %>
+        <%= f.datetime_select :start_date,{}, class: "btn btn-success" %>
       </p>
     </p>
     <p>
       <%= f.label 'Fecha de finalizar evento' %>
       <p>
-        <%= f.date_select :end_date,{}, class: "btn btn-success" %>
+        <%= f.datetime_select :end_date,{}, class: "btn btn-success" %>
       </p>
     </p>
 

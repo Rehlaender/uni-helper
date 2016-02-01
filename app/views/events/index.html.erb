@@ -48,7 +48,7 @@
                   Descripción: <%= event.description %>
                 </div>
                 <div class="panel-footer">
-                  Fecha: <%= event.start_date.to_s(:number)  %> <%= @yolo %> / <%= event.end_date %>
+                  Fecha: <%= event.start_date.to_formatted_s(:short) %>  / <%= event.end_date.to_formatted_s(:short) %>
                 </div>
               </div>
             <% else  %>
