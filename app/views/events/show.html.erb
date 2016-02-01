@@ -1,33 +1,20 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid eventshow">
   <div class="row row-eq-height">
-    <div class="leftmargin jumbotron col-md-5 ">
+    <div class="leftmargin jumbotron col-md-3 ">
       <h2 class="text-center"><%= @event.name %></h2>
-      <div class="divider"></div>
-      <h4>Organizado por</h4>
-      <div class="well">
-        <%= @event.user.name %>
+      <div class="postpatrocinados_titulo">
+        <h5>Organizado por: <small><%= @event.user.name %></small></h5>
+        <h5>Lugar: <small><%= @event.school.name%></small></h5>
+        <h5>Descripción: <small><%= @event.description %></small></h5>
+        <h5>Fecha de inicio: <small><%= @event.start_date.to_formatted_s(:short) %></small></h5>
+        <h5>Fecha de finalizado: <small><%= @event.end_date.to_formatted_s(:short) %></small></h5>
+        <%= link_to 'Regresar', events_path, :class=>"btn btn-info" %>
+        <%= link_to 'Postear', new_post_path , :class=>"btn btn-success" %>
       </div>
-      <h4>Lugar</h4>
-      <div class="well">
-        <%= @event.school.name%>
-      </div>
-      <h4>Descripción</h4>
-      <div class="well">
-        <%= @event.description %>
-      </div>
-      <h4>Fecha de inicio</h4>
-      <div class="well">
-        <%= @event.start_date %>
-      </div>
-      <h4>Fecha de finalizado</h4>
-      <div class="well">
-        <%= @event.end_date %>
-      </div>
-      <%= link_to 'Regresar', :back, :class=>"btn btn-info" %>
     </div>
 
-    <div class="jumbotron col-md-offset-1 col-md-5 affixed" id="eventposts">
+    <div class="jumbotron col-md-offset-1 col-md-7 affixed" id="eventposts">
           <%= render 'posts' %>
     </div>
   </div>
