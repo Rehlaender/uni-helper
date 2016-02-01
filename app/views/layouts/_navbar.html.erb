@@ -19,6 +19,8 @@
   </ul>
   <% else %>
   <% end %>
+
+
   <!--<div class="navbar-collapse collapse navbar-responsive-collapse">-->
       <div class="container">
         <ul class="nav navbar-nav navbar-right">
@@ -32,6 +34,17 @@
               <li><%= link_to 'Mis posts', posts_user_path(current_user.id), :class=>""%></i></li>
               <li class="divider"></li>
               <li><%= link_to 'Cerrar sesion', logout_path, method: "delete"%></i></li>
+            </ul>
+          </li>
+          <% #admin %>
+          <% elsif  logged_in_admin? %>
+          <li class="dropdown btn-material-green">
+            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-action-account-circle"></i><%= current_admin.user %>
+              <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>Cosa</li>
+              <li class="divider"></li>
+              <li><%= link_to 'Cerrar sesion', admin_logout_path, method: "delete"%></li>
             </ul>
           </li>
           <!-- No user-->
