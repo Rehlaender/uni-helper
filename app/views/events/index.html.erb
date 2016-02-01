@@ -39,9 +39,16 @@
             <% if @final > @hoy %>
               <div class="panel-success col-md-6" id="post">
                 <div class="panel-heading">
-                  <h4><%= link_to "<i class='mdi-action-launch'></i>".html_safe, event, class:"eventlink"  %>
+                  <h4>
+                    <%= link_to "<i class='mdi-action-launch'></i>".html_safe, event, class:"eventlink"  %>
                     <%= link_to event.school.name, events_school_path(event.school_id), class:"eventlink" %> :
                     <%= link_to event.name, event_path(event.id), class:"eventlink" %>
+                    <% if event.user_id == current_user.id %>
+                    |
+                    <%= link_to '<i class="mdi-content-create tiny"></i>'.html_safe, edit_event_path(event), class:"eventlink" %>
+                    <%= link_to '<i class="mdi-action-delete tiny"></i>'.html_safe, event, class:"eventlink", :method => :delete, :confirm => "Estas seguro?"%>
+                    <% else %>
+                    <% end %>
                   </h4>
                 </div>
                 <div class="panel-body">
