@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130230113) do
+ActiveRecord::Schema.define(version: 20160131234932) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160130230113) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.boolean  "promoted",         default: false
+    t.integer  "event_id"
   end
 
   create_table "promotions", force: :cascade do |t|
