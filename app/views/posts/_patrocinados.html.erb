@@ -1,7 +1,8 @@
 <div class="col-sm-3 col-md-3 affixed" id="patrocinados">
   <div class="row">
     <h4 class="postpatrocinados_titulo">Posts patrocinados</h4>
-      <% @posts.each do |post| %>
+      <% @patros = Post.where(:promoted => true).order("RANDOM()").limit(5) %>
+      <% @patros.each do |post| %>
         <div class="panel-success <%= post.category.name %> <%= post.school.name %> col-sm-12" id="post">
           <div class="panel-heading" >
             <h5>Post por: <a id='userlink' href='<%= user_path(post.user.id)%>'> <%= post.user.name %></a></h5>

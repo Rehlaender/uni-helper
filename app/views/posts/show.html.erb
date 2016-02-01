@@ -31,7 +31,7 @@
         <% else %>
         <!--no es tu post -->
         <% end %>
-        <a class="btn btn-info" href="<%= posts_category_post_path(@post.category_post_id) %>">Regresar</a>
+        <%= link_to 'Regresar', :back, :class=>"btn btn-info" %>
       </p>
     </div>
   </div>
