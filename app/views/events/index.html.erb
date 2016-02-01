@@ -1,57 +1,52 @@
 <div class="row">
-
     <div class="col-md-6 col-md-offset-3">
       <h1 class="text-center under-navbar">Eventos</h1>
     </div>
-
-  </div>
-
-
+</div>
 
   <div class="row under-navbar">
 
-    <div class="col-md-1 col-md-offset-1">
-      <%= link_to "Crear evento", new_event_path, :class => "btn btn-raised btn-success"%>
+    <div class="jumbotron col-md-8 col-md-offset-2">
+      <div class="container">
+        <div class="">
+          <table>
+            <tr>
+              <td>
+                <%= link_to "Crear evento", new_event_path, :class => "btn btn-raised btn-success"%>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Facultades
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="">
+                    <% @schools.each do  |school| %>
+                      <li> <%= link_to "#{school.name}", events_school_path(school.id) %> </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
-    </div>
-
-    <div class="jumbotron col-md-6 col-md-offset-1">
-      <% @events.each do |event| %>
-
-            <div class="panel panel-success">
-
+      <div class="">        
+          <% @events.each do |event| %>
+            <div class="panel-success col-md-6" id="post">
               <div class="panel-heading">
-                <h4><%= event.name %></h4>
+                <h4><%= link_to "<i class='mdi-action-launch'></i>".html_safe, event, class:"eventlink"  %> <%= event.school.name %> : <%= event.name%> </h4>
               </div>
-
-              <div class="panel-body">
-                Lugar: <%= event.school.name %>
-              </div>
-
-              <div class="panel-body">
-                Fecha:
-              </div>
-
               <div class="panel-body">
                 Descripción: <%= event.description %>
               </div>
-
-
+              <div class="panel-footer">
+                Fecha:
+              </div>
             </div>
-      <% end %>
+          <% end %>
+      </div>
 
     </div>
-
-    <div class="col-md-1 col-md-offset-1 ">
-
-        <h1 class="header  under-navbar">
-          Facultades
-        </h1>
-
-      <% @schools.each do  |school| %>
-        <li> <%= link_to "#{school.name}", events_school_path(school.id) %> </li>
-      <% end %>
-
-    </div>
-
   </div>

@@ -1,3 +1,22 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.eventlink {
+  color: white;
+  background-color: transparent;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.eventlink:hover {
+  text-decoration: none;
+  color: cyan;
+}
+
+.red{
+  border: 5px solid red;
+}
+
+#post {
+  margin-bottom: 6px;
+}

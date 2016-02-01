@@ -26,12 +26,12 @@
         Post por: <a href='<%= user_path(@post.user.id)%>'> <%= @post.user.name %></a>
       </div>
       <p>
-        <a class="btn btn-info" href="<%= posts_category_post_path(@post.category_post_id) %>">Regresar</a>
         <% if @post.user_id == current_user.id %>
         <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary' %>
         <% else %>
         <!--no es tu post -->
         <% end %>
+        <a class="btn btn-info" href="<%= posts_category_post_path(@post.category_post_id) %>">Regresar</a>
       </p>
     </div>
   </div>
