@@ -10,10 +10,10 @@
         </a>
     <% end %>
 
-      <select class="btn btn-material-green" name="">
-        <option id="dropreset">Factultades</option>
-        <% @schools = School.all %>
-        <% @schools.each do |school| %>
-        <option class="" id="drop<%= school.name %>" href="javascript:void(0)"><%= school.name %></option>
-        <% end %>
-      </select>
+    <select class="btn btn-material-green" name="dropSchool">
+      <option>Facultades:</option>
+      <% @schools = School.all %>
+      <% @schools.each do |school| %>
+      <option class="" id="drop<%= school.name %>" href="javascript:void(0)"><%= school.name %></option>
+      <% end %>
+    </select>

@@ -9,3 +9,11 @@
           <% end %>
         </a>
     <% end %>
+
+    <select class="btn btn-material-green" name="dropSchool">
+      <option>Facultades:</option>
+      <% @schools = School.all %>
+      <% @schools.each do |school| %>
+      <option class="" id="drop<%= school.name %>" href="javascript:void(0)"><%= school.name %></option>
+      <% end %>
+    </select>
