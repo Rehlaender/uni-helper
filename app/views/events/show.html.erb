@@ -1,25 +1,29 @@
 <p id="notice"><%= notice %></p>
-<div class="jumbotron col-md-6 col-md-offset-3">
-  <h1 class="text-center"><%= @event.name %></h1>
-
-
-  <h3>Organizado por</h3>
-  <div class="well">
-    <%= @event.user.name %>
+<div class="row row-eq-height">
+  <div class="jumbotron col-md-5 ">
+    <h2 class="text-center"><%= @event.name %></h2>
+    <div class="divider"></div>
+    <h4>Organizado por</h4>
+    <div class="well">
+      <%= @event.user.name %>
+    </div>
+    <h4>Lugar</h4>
+    <div class="well">
+      <%= @event.school.name%>
+    </div>
+    <h4>Descripción</h4>
+    <div class="well">
+      <%= @event.description %>
+    </div>
+    <p>
+    <%= link_to 'Back', events_path %>
+    </p>
   </div>
 
-  <h3>Lugar</h3>
-  <div class="well">
-    <%= @event.school.name%>
+  <div class="jumbotron col-md-offset-1 col-md-5">
+    <div class="">
+      blablaba
+    </div>
   </div>
-
-  <h3>Descripción</h3>
-  <div class="well">
-    <%= @event.description %>
-  </div>
-
-  <p>
-  <%= link_to 'Back', events_path %>
-  </p>
 
 </div>
