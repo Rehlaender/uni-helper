@@ -21,11 +21,14 @@
     <%= f.select :school_id, select_school,{}, class: "form-control" %>
   </p>
 
-
-
   <p>
     <%= f.label "Precio" %>
     <%= f.text_field :price, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label "Evento al que pertenece" %>
+    <%= f.text_field :event_id, class: "form-control" %>
   </p>
 
 
