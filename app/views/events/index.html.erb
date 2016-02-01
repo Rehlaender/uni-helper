@@ -36,7 +36,10 @@
           <% @events.each do |event| %>
             <div class="panel-success col-md-6" id="post">
               <div class="panel-heading">
-                <h4><%= link_to "<i class='mdi-action-launch'></i>".html_safe, event, class:"eventlink"  %> <%= event.school.name %> : <%= event.name%> </h4>
+                <h4><%= link_to "<i class='mdi-action-launch'></i>".html_safe, event, class:"eventlink"  %>
+                  <%= link_to event.school.name, events_school_path(event.id), class:"eventlink" %> :
+                  <%= link_to event.name, event_path(event.id), class:"eventlink" %>
+                </h4>
               </div>
               <div class="panel-body">
                 Descripción: <%= event.description %>
