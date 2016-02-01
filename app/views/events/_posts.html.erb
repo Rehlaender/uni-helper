@@ -1,5 +1,5 @@
 <div class="row">
-  <h4 class="postpatrocinados_titulo">Post del evento</h4>
+  <h4 class="postpatrocinados_titulo">Posts del evento</h4>
     <% @posts = Post.where(:event_id => @event.id) %>
     <% @posts.each do |post| %>
     <div class="panel-success <%= post.category.name %> <%= post.school.name %> col-md-6 col-sm-6" id="post">
