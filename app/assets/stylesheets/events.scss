@@ -31,3 +31,17 @@
   display: -ms-flexbox;
   display: flex;
 }
+
+#eventposts{
+  position: absolute;
+  overflow: scroll;
+  height: 80%;
+}
+
+#eventshow{
+  height: 80%;
+}
+
+.leftmargin{
+  margin-left: 2px;
+}
