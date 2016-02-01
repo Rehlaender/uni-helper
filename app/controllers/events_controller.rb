@@ -25,11 +25,11 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Post.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def update
-    @event = Post.find(params[:id])
+    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to @event
     else
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :school_id,:user_id, :description)
+      params.require(:event).permit(:name, :school_id,:user_id, :start_date, :end_date, :description)
     end
 
 end

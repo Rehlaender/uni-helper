@@ -16,6 +16,14 @@
       <div class="well">
         <%= @event.description %>
       </div>
+      <h4>Fecha de inicio</h4>
+      <div class="well">
+        <%= @event.start_date %>
+      </div>
+      <h4>Fecha de finalizado</h4>
+      <div class="well">
+        <%= @event.end_date %>
+      </div>
       <%= link_to 'Regresar', :back, :class=>"btn btn-info" %>
     </div>
 
