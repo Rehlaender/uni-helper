@@ -7,6 +7,10 @@ class AdminsController < ApplicationController
 
     def show
       @admin = Admin.find(params[:id])
+      @hoy = DateTime.now.to_s(:number)
+      @posts = Post.all.order(created_at: :desc)
+      @events = Event.all.order(created_at: :desc)
+      @promotions = Promotion.all.order(created_at: :desc)
     end
 
     def new
