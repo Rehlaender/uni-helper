@@ -1,3 +1,45 @@
+<% if logged_in_admin? %>
+<div class="row">
+  <h4 class="postpatrocinados_titulo">Posts del evento</h4>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripcion</th>
+        <th>Para la facultad</th>
+        <th>Categoria</th>
+        <th>Costo</th>
+        <th>Tipo de post</th>
+        <th>Evento</th>
+        <th>Mostrar</th>
+        <th>Editar</th>
+        <th>Borrar</th>
+      </tr>
+    </thead>
+    <% @posts = Post.where(:event_id => @event.id) %>
+    <% @posts.each do |post| %>
+    <tbody>
+      <tr class="info">
+        <td><%= post.id %></td>
+        <td><%= post.description %></td>
+        <td><%= post.school.name %></td>
+        <td><%= post.category.name %></td>
+        <td><%= post.category_post.name %></td>
+        <td>$<%= post.price %></td>
+        <% if post.event_id == nil %>
+            <td><small>sin evento</small></td>
+        <% else %>
+        <td><%= post.event.name %></td>
+        <% end %>
+        <td class="postsaction"><%= link_to '<i class="mdi-action-search"></i>'.html_safe, post %></td>
+        <td class="postsaction"><%= link_to '<i class="mdi-content-create"></i>'.html_safe, edit_post_path(post) %></td>
+        <td class="postsaction"><%= link_to '<i class="mdi-action-delete"></i>'.html_safe, post, :method => :delete, :confirm => "Estas seguro?"%></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>
+<% elsif logged_in? %>
 <div class="row">
   <h4 class="postpatrocinados_titulo">Posts del evento</h4>
     <% @posts = Post.where(:event_id => @event.id) %>
@@ -22,3 +64,4 @@
     </div>
     <% end %>
 </div>
+<% end %>
