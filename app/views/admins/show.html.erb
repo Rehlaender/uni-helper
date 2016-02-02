@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 <h1 class="text-center">Administrador: <%= @admin.name %></h1>
   <div class="container-fluid">
-    <div class="row row-eq-height">
-      <div class="leftmargin jumbotron col-md-3 ">
-        <%= link_to 'Promotion', promotion_path, class:"btn btn-danger"%>
-        <%= link_to 'Reportes', admin_path(current_admin.id), class:"btn btn-danger"%>
-        <%= link_to 'Cerrar sesion', admin_logout_path, method: "delete", class:"btn btn-danger"%>
+    <div class="row">
+      <div class="jumbotron col-md-10 col-sm-10 col-sm-offset-1">
+        <%= render 'buttons' %>
       </div>
-
-      <div class="jumbotron col-md-offset-1 col-md-7 affixed reportes">
+    </div>
+    <div class="row">
+      <div class="jumbotron col-md-offset-1 col-md-10 col-sm-10 col-sm-offset-1 reportes">
+        <%= render 'posts' %>
+        <br>
+        <%= render 'events' %>
 
       </div>
     </div>

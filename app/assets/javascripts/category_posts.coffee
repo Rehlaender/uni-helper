@@ -21,7 +21,7 @@ ready = ->
     $('#mapContent div').show()
     $('#mapContent div').not('.' + chosenCat).hide()
     return
-  
+
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
