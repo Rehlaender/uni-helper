@@ -10,22 +10,26 @@
         <th>Fecha de inicio</th>
         <th>Fecha final</th>
         <th>Organizador</th>
-
       </tr>
     </thead>
-    <% @events.each do |event| %>
+    <% @sietedias = 7.day.ago.to_s(:number) %>
     <tbody>
       <tr class="info">
-        <td><%= event.id %></td>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.school.name %></td>
-        <td><%= event.start_date.to_formatted_s(:short) %></td>
-        <td><%= event.end_date.to_formatted_s(:short) %></td>
-        <td><%= event.user.name %></td>
+        <% @events.each do |event| %>
+        <% @eventofecha = event.created_at.to_s(:number) %>
+        <% if @sietedias < @eventofecha %>
+            <td><%= event.id %></td>
+            <td><%= event.name %></td>
+            <td><%= event.description %></td>
+            <td><%= event.school.name %></td>
+            <td><%= event.start_date.to_formatted_s(:short) %></td>
+            <td><%= event.end_date.to_formatted_s(:short) %></td>
+            <td><%= event.user.name %></td>
+          <% else %>
+          <% end %>
+        <% end %>
       </tr>
     </tbody>
-    <% end %>
   </table>
   <%= link_to 'Imprimir', href="javascript:void(0)", class:"btn btn-success"%>
 </div>

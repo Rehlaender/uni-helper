@@ -12,23 +12,28 @@
         <th>Evento</th>
       </tr>
     </thead>
-    <% @posts.each do |post| %>
+    <% @sietedias = 7.day.ago.to_s(:number) %>
     <tbody>
       <tr class="info">
+      <% @posts.each do |post| %>
+      <% @postfecha = post.created_at.to_s(:number) %>
+        <% if @sietedias < @postfecha %>
         <td><%= post.id %></td>
         <td><%= post.description %></td>
         <td><%= post.school.name %></td>
         <td><%= post.category.name %></td>
         <td><%= post.category_post.name %></td>
         <td>$<%= post.price %></td>
-        <% if post.event_id == nil %>
-            <td><small>sin evento</small></td>
+            <% if post.event_id == nil %>
+                <td><small>sin evento</small></td>
+            <% else %>
+            <td><%= post.event.name %></td>
+            <% end %>
         <% else %>
-        <td><%= post.event.name %></td>
         <% end %>
+      <% end %>
       </tr>
     </tbody>
-    <% end %>
   </table>
   <%= link_to 'Imprimir', href="javascript:void(0)", class:"btn btn-success"%>
 </div>
