@@ -26,6 +26,8 @@ gem 'bootstrap-material-design'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'prawn'
+gem 'prawn-table'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'

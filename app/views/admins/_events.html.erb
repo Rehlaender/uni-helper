@@ -31,5 +31,5 @@
       </tr>
     </tbody>
   </table>
-  <%= link_to 'Imprimir', href="javascript:void(0)", class:"btn btn-success"%>
+  <p id="pdf_link"><%= link_to "Imprimir(PDF)", admin_path(current_admin.id, :format => "pdf") %></p>
 </div>

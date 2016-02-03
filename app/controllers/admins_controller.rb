@@ -11,6 +11,14 @@ class AdminsController < ApplicationController
       @posts = Post.all.order(created_at: :desc)
       @events = Event.all.order(created_at: :desc)
       @promotions = Promotion.all.order(created_at: :desc)
+
+      respond_to do |format|
+        format.html
+        format.pdf do
+          pdf = ReportPdf.new(@posts)
+          send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+        end
+      end
     end
 
     def new
