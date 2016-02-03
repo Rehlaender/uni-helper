@@ -40,9 +40,9 @@ class ReportPdf < Prawn::Document
   end
 
   def post_rows
-    [['#', 'Description', 'User_id']] +
+    [['#', 'Description', 'User name']] +
       @posts.map do |post|
-      [post.id, post.description, post.user_id]
+      [post.id, post.description, post.user.name]
     end
   end
 end
