@@ -2,14 +2,13 @@
 <h1 class="text-center">Administrador: <%= @admin.name %></h1>
   <div class="container-fluid">
     <div class="row">
-      <div class="jumbotron col-md-10 col-sm-10 col-sm-offset-1">
+      <div class="jumbotron col-md-10 col-sm-10 col-sm-offset-1" id="">
         <%= render 'buttons' %>
       </div>
     </div>
     <div class="row">
-      <div class="jumbotron col-md-offset-1 col-md-10 col-sm-10 col-sm-offset-1 reportes">
+      <div class="jumbotron col-md-offset-1 col-md-10 col-sm-10 col-sm-offset-1 " id="reportes">
         <%= render 'posts' %>
-        <br>
         <%= render 'events' %>
 
       </div>
