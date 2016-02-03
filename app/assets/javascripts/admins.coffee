@@ -9,6 +9,5 @@ ready = ->
     $('#reportes div').not('.' + chosenRepo).hide()
     return
 
-
 $(document).ready(ready)
 $(document).on('page:load', ready)
