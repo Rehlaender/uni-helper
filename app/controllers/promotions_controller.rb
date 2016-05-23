@@ -4,6 +4,13 @@ class PromotionsController < ApplicationController
 
   def index
     @promotions = Promotion.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PromotionPdf.new(@promotions)
+        send_data pdf.render, filename: 'promotions'+DateTime.now.to_s+'.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def show
