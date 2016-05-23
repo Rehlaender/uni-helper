@@ -17,7 +17,10 @@
           <%= @promotion.post_id %>
         </div>
       </p>
-
+      <p>
+        <%= f.label "Pagado" %>
+        <%= f.check_box :paid_at, class: "form-control" %>
+      </p>
       <p>
         <%= f.label "Referencia" %>
         <%= f.text_field :reference, class: "form-control" %>
