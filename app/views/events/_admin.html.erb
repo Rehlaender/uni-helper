@@ -23,7 +23,7 @@
       <td><%= event.school.name %></td>
       <td><%= event.start_date.to_formatted_s(:short) %></td>
       <td><%= event.end_date.to_formatted_s(:short) %></td>
-      <td><%= event.user.name %></td>
+      <td><a  href='<%= user_path(event.user.id)%>'><%= event.user.name %></a></td>
       <td class="eventsaction"><%= link_to '<i class="mdi-action-search"></i>'.html_safe, event %></td>
       <td class="eventsaction"><%= link_to '<i class="mdi-content-create"></i>'.html_safe, edit_event_path(event) %></td>
       <td class="eventsaction"><%= link_to '<i class="mdi-action-delete"></i>'.html_safe, event, :method => :delete, :confirm => "Estas seguro?"%></td>
