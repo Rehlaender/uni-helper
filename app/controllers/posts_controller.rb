@@ -3,6 +3,13 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
     @categories = Category.all
     @category_posts = CategoryPost.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportPdf.new(@posts)
+        send_data pdf.render, filename: 'posts'+DateTime.now.to_s+'.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def show

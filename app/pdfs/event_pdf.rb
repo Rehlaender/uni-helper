@@ -1,13 +1,13 @@
-class ReportPdf < Prawn::Document
-  def initialize(posts)
+class EventPdf < Prawn::Document
+  def initialize(events)
     super()
-    @posts = posts
+    @events = events
     header
     table_content
   end
 
   def header
-    text "Reporte de posts", size: 15, style: :bold
+    text "Reporte de todos los eventos", size: 15, style: :bold
   end
 
   def text_content
@@ -31,18 +31,18 @@ class ReportPdf < Prawn::Document
     # This makes a call to product_rows and gets back an array of data that will populate the columns and rows of a table
     # I then included some styling to include a header and make its text bold. I made the row background colors alternate between grey and white
     # Then I set the table column widths
-    table post_rows do
+    table event_rows do
       row(0).font_style = :bold
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [40, 150, 200, 100, 50]
+      self.column_widths = [50, 200, 90, 50, 75, 75]
     end
   end
 
-  def post_rows
-    [['Id', 'Post Date', 'Description', 'User name', 'Promoted']] +
-      @posts.map do |post|
-      [post.id, post.created_at.to_s, post.description, post.user.name, post.promoted.to_s]
+  def event_rows
+    [['Id', 'Name', 'Host', 'School', 'Inicio', 'Fin']] +
+      @events.map do |event|
+      [event.id, event.name, event.user.name, event.school.name, event.start_date.to_date, event.end_date.to_date]
     end
   end
 end

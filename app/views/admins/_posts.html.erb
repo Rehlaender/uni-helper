@@ -35,5 +35,5 @@
       <% end %>
     </tbody>
   </table>
-  <p id="pdf_link"><%= link_to "Imprimir(PDF)", admin_path(current_admin.id, :format => "pdf") %></p>
+  <p id="pdf_link"><%= link_to "Imprimir(PDF)", posts_path(:format => "pdf") %></p>
 </div>

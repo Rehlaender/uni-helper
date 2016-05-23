@@ -2,8 +2,15 @@ class EventsController < ApplicationController
   before_action :user_in_logged, only:[:new, :create, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.order(created_at: :desc)
     @schools = School.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = EventPdf.new(@events)
+        send_data pdf.render, filename: 'events'+DateTime.now.to_s+'.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def show

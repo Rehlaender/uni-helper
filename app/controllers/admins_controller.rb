@@ -15,8 +15,10 @@ class AdminsController < ApplicationController
       respond_to do |format|
         format.html
         format.pdf do
-          pdf = ReportPdf.new(@posts)
-          send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+          pdfEvent = EventPdf.new(@events)
+          # pdfReport = ReportPdf.new(@posts)
+          send_data pdfEvent.render, filename: 'report.pdf', type: 'application/pdf'
+          #send_data pdfReport.render, filename: 'report.pdf', type: 'application/pdf'
         end
       end
     end
