@@ -30,8 +30,12 @@
     <%= f.label "Evento al que pertenece" %>
     <%= f.select :event_id, select_event,{}, class: "form-control" %>
   </p>
-
-
+  <%if logged_in_admin? %>
+    <p>
+      <%= f.label "Patrocinar" %>
+      <%= f.check_box :promoted, class: "form-control" %>
+    </p>
+  <% end %>
   <p class="text-center">
     <%= f.submit :class => "btn btn-success"%>
   </p>

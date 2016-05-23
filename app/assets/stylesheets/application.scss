@@ -5,6 +5,14 @@
 @import "category_posts.scss";
 @import "events.scss";
 
+.promotion_text{
+  color: red;
+  text-align: right;
+}
+
+.hide{
+  display: none;
+}
 .move {
   top: 13px;
 }

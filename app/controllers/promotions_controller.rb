@@ -24,7 +24,7 @@ class PromotionsController < ApplicationController
       #Pagina que asegura que la peticion fue exitosa
       redirect_to @promotion
     else
-      redirect_to error_promotion_path
+      redirect_to :error
     end
   end
 

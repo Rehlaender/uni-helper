@@ -8,13 +8,16 @@ class StaticPagesController < ApplicationController
   end
 
   def aboutus
-  
+
   end
 
   def start
 
   end
 
+  def error
+
+  end
   def administration
     redirect_to admin_login_url unless !current_admin.nil?
   end
