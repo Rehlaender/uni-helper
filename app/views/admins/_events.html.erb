@@ -1,5 +1,5 @@
 <div class="Eventos" id="Eventos" style="display:none">
-  <h3>Eventos</h3>
+  <h3>Eventos de esta semana</h3>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
@@ -14,8 +14,8 @@
     </thead>
     <% @sietedias = 7.day.ago.to_s(:number) %>
     <tbody>
-      <tr class="info">
         <% @events.each do |event| %>
+        <tr class="info">
         <% @eventofecha = event.created_at.to_s(:number) %>
         <% if @sietedias < @eventofecha %>
             <td><%= event.id %></td>
@@ -27,8 +27,8 @@
             <td><%= event.user.name %></td>
           <% else %>
           <% end %>
+        </tr>
         <% end %>
-      </tr>
     </tbody>
   </table>
   <p id="pdf_link"><%= link_to "Imprimir(PDF)", admin_path(current_admin.id, :format => "pdf") %></p>

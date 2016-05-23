@@ -24,9 +24,10 @@
 
   <% if logged_in_admin? %>
   <ul class="Buttons nav navbar-nav navbar-left ">
-        <li><%= link_to 'Posts' , posts_path, :class=>"btn-material-green" %></li>
-        <li><%= link_to 'Eventos', events_path, :class=>"btn-material-green" %></li>
-        <li><%= link_to 'Administrar', administration_path, :class=>"btn-material-green active" %></li>
+    <li><%= link_to 'Reportes', admin_path(current_admin.id), :class=>"btn-material-red" %></li>
+    <li><%= link_to 'Posts' , posts_path, :class=>"btn-material-green" %></li>
+    <li><%= link_to 'Eventos', events_path, :class=>"btn-material-green" %></li>
+    <li><%= link_to 'Administrar', administration_path, :class=>"btn-material-green active" %></li>
   </ul>
   <% else %>
   <% end %>
