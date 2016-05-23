@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
   belongs_to :school
   belongs_to :user
-  has_many :events
+  has_many :posts
 end

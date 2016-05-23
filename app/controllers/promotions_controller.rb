@@ -4,6 +4,13 @@ class PromotionsController < ApplicationController
 
   def index
     @promotions = Promotion.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PromotionPdf.new(@promotions)
+        send_data pdf.render, filename: 'promotions'+DateTime.now.to_s+'.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def show
@@ -24,7 +31,7 @@ class PromotionsController < ApplicationController
       #Pagina que asegura que la peticion fue exitosa
       redirect_to @promotion
     else
-      redirect_to error_promotion_path
+      redirect_to :error
     end
   end
 

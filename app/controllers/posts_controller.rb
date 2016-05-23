@@ -3,6 +3,13 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
     @categories = Category.all
     @category_posts = CategoryPost.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportPdf.new(@posts)
+        send_data pdf.render, filename: 'posts'+DateTime.now.to_s+'.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def show
@@ -47,7 +54,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:user_id, :description, :school_id, :category_id, :price, :category_post_id, :event_id)
+    params.require(:post).permit(:user_id, :description, :school_id, :category_id, :price, :category_post_id, :promoted, :event_id)
   end
 
 end

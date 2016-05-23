@@ -12,8 +12,8 @@
       <th>Mostrar</th>
       <th>Editar</th>
       <th>Borrar</th>
-      <th>Promocionar</th>
-      <th>Promocionado</th>
+      <th class="">Promocionar</th>
+      <th class="">Promocionado</th>
     </tr>
   </thead>
   <% @posts.each do |post| %>
@@ -32,9 +32,9 @@
       <td class="postsaction"><%= link_to '<i class="mdi-action-search"></i>'.html_safe, post %></td>
       <td class="postsaction"><%= link_to '<i class="mdi-content-create"></i>'.html_safe, edit_post_path(post) %></td>
       <td class="postsaction"><%= link_to '<i class="mdi-action-delete"></i>'.html_safe, post, :method => :delete, :confirm => "Estas seguro?"%></td>
-      <td class="postsaction"><%= link_to "Promocionar", new_promotion_path(post_param: post.id) %></td>
+      <td class="postsaction "><%= link_to "Promocionar", new_promotion_path(post_param: post.id) %></td>
       <% if post.promoted != false %>
-      <td class="postsaction"><i class="mdi-action-stars"></i></td>
+      <td class="postsaction "><i class="mdi-action-stars"></i></td>
       <% else %>
       <td>
       </td>

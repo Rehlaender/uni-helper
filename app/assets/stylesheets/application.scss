@@ -5,6 +5,14 @@
 @import "category_posts.scss";
 @import "events.scss";
 
+.promotion_text{
+  color: red;
+  text-align: right;
+}
+
+.hide{
+  display: none;
+}
 .move {
   top: 13px;
 }
@@ -18,4 +26,30 @@
 
 .tiny{
   font-size: 1.5rem;
+}
+
+.reportes{
+  position: absolute;
+  height: 80%;
+}
+
+@media print {
+  body {
+    background-color: #FFF;
+  }
+
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  #line_items {
+    page-break-before: always;
+  }
+
+  #pdf_nel {
+    display: none;
+  }
 }

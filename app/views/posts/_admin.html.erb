@@ -4,6 +4,7 @@
     <tr>
       <th>ID</th>
       <th>Descripcion</th>
+      <th>User</th>
       <th>Para la facultad</th>
       <th>Categoria</th>
       <th>Costo</th>
@@ -12,6 +13,7 @@
       <th>Mostrar</th>
       <th>Editar</th>
       <th>Borrar</th>
+      <th>Promocionado</th>
     </tr>
   </thead>
   <% @posts.each do |post| %>
@@ -19,6 +21,7 @@
     <tr class="info">
       <td><%= post.id %></td>
       <td><%= post.description %></td>
+      <td><a  href='<%= user_path(post.user.id)%>'><%= post.user.name %></a></td>
       <td><%= post.school.name %></td>
       <td><%= post.category.name %></td>
       <td><%= post.category_post.name %></td>
@@ -31,6 +34,9 @@
       <td class="postsaction"><%= link_to '<i class="mdi-action-search"></i>'.html_safe, post %></td>
       <td class="postsaction"><%= link_to '<i class="mdi-content-create"></i>'.html_safe, edit_post_path(post) %></td>
       <td class="postsaction"><%= link_to '<i class="mdi-action-delete"></i>'.html_safe, post, :method => :delete, :confirm => "Estas seguro?"%></td>
+      <% if post.promoted != false %>
+      <td class="postsaction "><i class="mdi-action-stars"></i></td>
+      <% end %>
     </tr>
   </tbody>
   <% end %>

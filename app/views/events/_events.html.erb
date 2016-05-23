@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="">
+    <table>
+      <tr>
+        <td>
+          <%= link_to "Crear evento", new_event_path, :class => "btn btn-raised btn-success"%>
+        </td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Facultades
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="">
+              <% @schools.each do  |school| %>
+                <li> <%= link_to "#{school.name}", events_school_path(school.id) %> </li>
+              <% end %>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="">
+    <% @hoy = DateTime.now.to_s(:number) %>
+    <% @events.each do |event| %>
+      <% @final = event.end_date.to_s(:number) %>
+      <% if @final > @hoy %>
+        <div class="panel-success col-md-6" id="post">
+          <div class="panel-heading">
+            <h4>
+              <%= link_to "<i class='mdi-action-launch'></i>".html_safe, event, class:"eventlink"  %>
+              <%= link_to event.school.name, events_school_path(event.school_id), class:"eventlink" %> :
+              <%= link_to event.name, event_path(event.id), class:"eventlink" %>
+              <% if event.user_id == current_user.id %>
+              |
+              <%= link_to '<i class="mdi-content-create tiny"></i>'.html_safe, edit_event_path(event), class:"eventlink" %>
+              <%= link_to '<i class="mdi-action-delete tiny"></i>'.html_safe, event, class:"eventlink", :method => :delete, :confirm => "Estas seguro?"%>
+              <% else %>
+              <% end %>
+            </h4>
+          </div>
+          <div class="panel-body">
+            Descripción: <%= event.description %>
+          </div>
+          <div class="panel-footer">
+            Fecha: <%= event.start_date.to_formatted_s(:short) %>  / <%= event.end_date.to_formatted_s(:short) %>
+          </div>
+        </div>
+      <% else  %>
+      <% end %>
+    <% end %>
+</div>

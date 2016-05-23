@@ -7,6 +7,20 @@ class AdminsController < ApplicationController
 
     def show
       @admin = Admin.find(params[:id])
+      @hoy = DateTime.now.to_s(:number)
+      @posts = Post.all.order(created_at: :desc)
+      @events = Event.all.order(created_at: :desc)
+      @promotions = Promotion.all.order(created_at: :desc)
+
+      respond_to do |format|
+        format.html
+        format.pdf do
+          pdfEvent = EventPdf.new(@events)
+          # pdfReport = ReportPdf.new(@posts)
+          send_data pdfEvent.render, filename: 'report.pdf', type: 'application/pdf'
+          #send_data pdfReport.render, filename: 'report.pdf', type: 'application/pdf'
+        end
+      end
     end
 
     def new
